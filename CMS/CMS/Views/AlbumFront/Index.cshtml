@@ -1,0 +1,28 @@
+﻿@model List<CMS.Models.ViewModel.AlbumViewModel>
+<div class="sub_banner">
+    <img class="img-responsive" src="~/Content/Frontend/Theme/DMC/images/banner/banner-tin-tuc-1366x190.png" title="Cẩm nang" alt="Cẩm nang" />
+</div>
+<div class="bread_nav wrapper hidden-xs">
+    <a href="javascript:;"></a><a href="/" title="Trang chủ">Trang chủ</a>&nbsp;&gt;&nbsp;<a href="/thu-vien-anh/" class="on" title="Thư viện hình ảnh">Thư viện hình ảnh</a>
+</div>
+<div class="main_con">
+    <div class="news">
+        <p class="c_ttl">Thư viện hình ảnh</p>
+        <div style="">
+            <div id="gallery">
+                @foreach (var album in Model)
+                {
+                    <div class="album" data-jgallery-album-title="@album.Album.title">
+                        <h1>@album.Album.title</h1>
+                        @foreach (var item in album.Items)
+                        {
+                            <a href="@item.image"><img src="@item.image" alt="@item.title" data-jgallery-bg-color="@item.colorBackground" data-jgallery-text-color="@item.colorText" /></a>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

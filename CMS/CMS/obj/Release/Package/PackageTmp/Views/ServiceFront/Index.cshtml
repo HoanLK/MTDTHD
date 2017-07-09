@@ -1,0 +1,79 @@
+﻿@model CMS.Models.ViewModel.NewsViewModel
+<main class="sub">
+    <div class="main" id="MainArea">
+        <!--Content-->
+        <article class="icobalt ilayout content content-area" id="MainZone">
+            <div id="BlogHome" class="blog-system">
+                <h1>Dịch vụ</h1>
+                <ul class="post-list">
+                    @foreach (var item in Model.Posts)
+                    {
+                        <li class="post cf" data-item="i" data-key="702005">
+                            <div class="thumbnail" style="background-image:url(@item.image)"></div>
+                            <div class="post-preview cf">
+                                <h2><a href="/dich-vu/@item.alias-@item.id" title="@item.title">@item.title</a></h2>
+                                <div class="post-content">
+                                    <date>@item.timePublished.Value.ToShortDateString()</date>
+                                    <span>
+                                        @*@if (!string.IsNullOrEmpty(item.description))
+                                            {
+                                                if (item.description.Length >= 130)
+                                                {
+                                                    @item.description.Substring(0, 130) <text>...</text>
+                                                }
+                                                else
+                                                {
+                                                    @item.description
+                                                }
+                                            }*@
+                                        @item.description
+                                    </span>
+                                </div>
+                                <a href="/dich-vu/@item.alias-@item.id" class="btn" title="@item.title">Đọc tiếp</a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </article>
+        <!--Sidebar-->
+        <aside class="icobalt ilayout side content-area" id="SideZone">
+            <nav class="side-nav" id="SideNavigation">
+                <header id="SideNavHeader">
+                    <h2><a href="">Đơn vị trực thuộc</a></h2>
+                </header>
+                <ul>
+                    <li class="level1 child0"><a href="" target="">Văn phòng Công ty</a></li>
+                    <li class="level1 child0"><a href="" target="">Xí nghiệp trực thuộc</a></li>
+                </ul>
+            </nav>
+
+            <nav class="side-nav" id="SideNavigation">
+                <header id="SideNavHeader">
+                    <h2><a href="">Sản phẩm</a></h2>
+                </header>
+                <ul>
+                    <li class="level1 child0"><a href="" target="">Sản xuất xe gom rác</a></li>
+                    <li class="level1 child0"><a href="" target="">Cho thuê nhà vệ sinh công cộng</a></li>
+                </ul>
+            </nav>
+
+            <nav class="side-nav" id="SideNavigation">
+                <header id="SideNavHeader">
+                    <h2><a href="">Dịch vụ</a></h2>
+                </header>
+                <ul>
+                    <li class="level1 child0"><a href="" target="">Cho thuê - bán thiết bị thu chứa rác</a></li>
+                    <li class="level1 child0"><a href="" target="">Thu gom - vận chuyển - xử lý rác thải sinh hoạt</a></li>
+                    <li class="level1 child0"><a href="" target="">Thu gom - vận chuyển - xử lý rác thải công nghiệp</a></li>
+                    <li class="level1 child0"><a href="" target="">Cho thuê nhà vệ sinh công cộng</a></li>
+                </ul>
+            </nav>
+
+        </aside>
+    </div>
+    <div id="DetailArea">
+        <div class="icobalt ilayout iarea main" id="DetailZone"></div>
+    </div>
+    <div class="icobalt ilayout iarea" id="SatisfactionZone"></div>
+</main>

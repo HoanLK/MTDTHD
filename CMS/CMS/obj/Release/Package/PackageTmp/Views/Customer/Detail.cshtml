@@ -1,0 +1,26 @@
+﻿@model CMS.Models.ViewModel.ShowCustomerViewModel
+<!--Banner-->
+<div class="sub_banner">
+    <img src="http://www.concrete-mix-plant.com/d/img/about-banner.jpg" alt="">
+</div>
+<!--Banner-->
+<!--BreakCrum-->
+<div class="bread_nav wrapper">
+    <a href="javascript:;"></a><a href="/">Trang chủ</a>&nbsp;&gt;&nbsp;<a href="/khach-hang/" >Khách hàng</a>&nbsp;&gt;&nbsp;<a href="/khach-hang/@Model.CategoryCustomer.alias" title="@Model.CategoryCustomer.title">@Model.CategoryCustomer.title</a>&nbsp;&gt;&nbsp;<a href="/khach-hang/@Model.Customer.alias-@Model.Customer.id" title="@Model.Customer.title">@Model.Customer.title</a>
+</div>
+<!--/BreakCrum-->
+<!--Content-->
+<div class="main_con">
+    <div class="about_company wrapper">
+        <p class="c_ttl">@Model.Customer.title</p>
+        @Html.Raw(Model.Customer.content)
+        <div class="news_link wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; margin-top: 30px">
+            <p class="ttl">CÁC KHÁCH HÀNG KHÁC</p>
+            @foreach (var item in Model.RelateCustomers)
+            {
+                <p>▶ <a href="/khach-hang/@item.alias-@item.id">@item.title</a></p>
+            }
+        </div>
+    </div>
+</div>
+<!--/Content-->

@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Quản lý tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="accountController">
+    <!--Header Section-->
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li class="active text-uppercase">Quản lý Tài khoản</li>
+        </ol>
+    </div>
+
+    <!--Body-->
+    <div class="section-body">
+        @*<input type="hidden" value="@WebSecurity.CurrentUserName" id="user" />*@
+        <div class="row">
+
+        </div>
+        <hr class="ruler-lg" />
+
+        <div class="card">
+            <div class="card-body">
+                @*<span us-spinner="{radius:15, width:4, length: 8}"></span>*@
+                <!--Category Post-->
+                <div class="col-md-12 col-sm-12 col-xs-12" id="account">
+                    <div id="gridContainer" dx-data-grid="gridAccounts"></div>
+                    <div dx-context-menu="contextMenuAccounts"></div>
+                </div>
+
+                <!--Popup Delete-->
+                <div class="popup" dx-popup="popupDeleteAccount">
+                    <div data-options="dxTemplate: { name:'templateDeleteAccount' }">
+                        <div style="text-align: center" ng-cloak>{{titleDeleteAccount}}</div>
+                        <br />
+                        <div dx-button="{ text: 'Có', icon: 'floppy', onClick: ConfirmDeleteAccount, type: 'success' }"></div>
+                        <div dx-button="{ text: 'Không', icon: 'clear', onClick: CancelDeleteAccount, type: 'danger' }"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="row" ng-controller="accountController">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Quản lý tài khoản</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li ng-show="roleUser === 'Administrator' || roleUser === 'Giám đốc'">
+                        <a class="btn btn-primary" title="Thêm tài khoản" data-toggle="tooltip" href="/Account/Register"><i class="fa fa-plus"></i> Thêm</a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="demo-container">
+                    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+                    <div id="gridContainer" dx-data-grid="gridOptions" dx-item-alias="taikhoan">
+                        <div data-options="dxTemplate:{ name:'hanhdongCellTemplate' }" style="text-align:center">
+                            <a class="dx-link" href="/Account/Delete/{{taikhoan.value}}">Xóa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+

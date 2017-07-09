@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Thông tin Công ty";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="infoCompanyController">
+    <!--Header Section-->
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li class="active text-uppercase" style="width: 100%">
+                <div class="col-md-4">
+                    Thông tin Công ty
+                </div>
+                <div class="col-md-8">
+                    <div class="col-md-3 pull-right">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-danger" ng-click="Cancel()"><span class="fa fa-remove"></span> Hủy bỏ</button>
+                    </div>
+                    <div class="col-md-3 pull-right">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="SaveAndExit()"><span class="fa fa-check-square-o"></span> Lưu & Thoát</button>
+                    </div>
+                    <div class="col-md-3 pull-right">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-success" ng-click="Save()"><span class="fa fa-edit"></span> Lưu</button>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!--Body-->
+    <div class="section-body">
+        @*<input type="hidden" value="@WebSecurity.CurrentUserName" id="user" />*@
+        <div class="row">
+
+        </div>
+        <hr class="ruler-lg" />
+
+        <div class="card">
+            <div class="card-body">
+                <form class="form" role="form">
+                    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group  " ng-class="{'has-error':!infoCompany.name, 'has-success':infoCompany.name}">
+                                <input type="text" class="form-control" id="name" name="name" ng-model="infoCompany.name">
+                                <label for="name">Tên công ty</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group  " ng-class="{'has-error':!infoCompany.intro, 'has-success':infoCompany.intro}">
+                                <input type="text" class="form-control" id="intro" name="intro" ng-model="infoCompany.intro">
+                                <label for="intro">Giới thiệu vắn tắt</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group  " ng-class="{'has-error':!infoCompany.address, 'has-success':infoCompany.address}">
+                                <input type="text" class="form-control" id="address" name="address" ng-model="infoCompany.address">
+                                <label for="address">Địa chỉ</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group  " ng-class="{'has-error':!infoCompany.tel, 'has-success':infoCompany.tel}">
+                                <input type="text" class="form-control" id="tel" name="tel" ng-model="infoCompany.tel">
+                                <label for="tel">Số điện thoại (sđt1,sđt2... )</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group  " ng-class="{'has-error':!infoCompany.hotline, 'has-success':infoCompany.hotline}">
+                                <input type="text" class="form-control" id="hotline" name="hotline" ng-model="infoCompany.hotline">
+                                <label for="tel">Hotline</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group  " ng-class="{'has-error':!infoCompany.fax, 'has-success':infoCompany.fax}">
+                                <input type="text" class="form-control" id="fax" name="fax" ng-model="infoCompany.fax">
+                                <label for="fax">Fax</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group  " ng-class="{'has-error':!infoCompany.email, 'has-success':infoCompany.email}">
+                                <input type="text" class="form-control" id="email" name="email" ng-model="infoCompany.email">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group  " ng-class="{'has-error':!infoCompany.mst, 'has-success':infoCompany.mst}">
+                                <input type="text" class="form-control" id="mst" name="mst" ng-model="infoCompany.mst">
+                                <label for="mst">Mã số thuế</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,284 @@
+[
+  {
+    "outputFileName": "Scripts/BackEnd/Post/postController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Post/postController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/CategoryPost/categorypostController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/CategoryPost/categorypostController.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/Backend/Templates/Material/css/theme-default/bootstrap.min.css",
+    "inputFiles": [
+      "Content/Backend/Templates/Material/css/theme-default/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/Backend/Templates/Material/css/theme-default/materialadmin.min.css",
+    "inputFiles": [
+      "Content/Backend/Templates/Material/css/theme-default/materialadmin.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/Backend/Templates/Material/css/theme-default/libs/toastr/toastr.min.css",
+    "inputFiles": [
+      "Content/Backend/Templates/Material/css/theme-default/libs/toastr/toastr.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/CategoryPost/modifyCategoryPostController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/CategoryPost/modifyCategoryPostController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Post/modifyPostController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Post/modifyPostController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/InfoCompany/infoCompanyController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/InfoCompany/infoCompanyController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/FrontEnd/Home/homeController.min.js",
+    "inputFiles": [
+      "Scripts/FrontEnd/Home/homeController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/FrontEnd/Footer/footerController.min.js",
+    "inputFiles": [
+      "Scripts/FrontEnd/Footer/footerController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/FrontEnd/introController.min.js",
+    "inputFiles": [
+      "Scripts/FrontEnd/introController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/FrontEnd/newsController.min.js",
+    "inputFiles": [
+      "Scripts/FrontEnd/newsController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/FrontEnd/showNewsController.min.js",
+    "inputFiles": [
+      "Scripts/FrontEnd/showNewsController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/FrontEnd/serviceController.min.js",
+    "inputFiles": [
+      "Scripts/FrontEnd/serviceController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/FrontEnd/menuController.min.js",
+    "inputFiles": [
+      "Scripts/FrontEnd/menuController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/FrontEnd/showServiceController.min.js",
+    "inputFiles": [
+      "Scripts/FrontEnd/showServiceController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/FrontEnd/commitmentController.min.js",
+    "inputFiles": [
+      "Scripts/FrontEnd/commitmentController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/FrontEnd/contactController.min.js",
+    "inputFiles": [
+      "Scripts/FrontEnd/contactController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Account/accountController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Account/accountController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Account/modifyAccountController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Account/modifyAccountController.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/Backend/Devextreme/Lib/css/dx.android5.light.min.css",
+    "inputFiles": [
+      "Content/Backend/Devextreme/Lib/css/dx.android5.light.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/Backend/Devextreme/Lib/css/dx.common.min.css",
+    "inputFiles": [
+      "Content/Backend/Devextreme/Lib/css/dx.common.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/FrontEnd/searchController.min.js",
+    "inputFiles": [
+      "Scripts/FrontEnd/searchController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Banner/bannerController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Banner/bannerController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Banner/modifyBannerController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Banner/modifyBannerController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Factory/aliasFactory.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Factory/aliasFactory.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Factory/urlFactory.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Factory/urlFactory.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/Backend/Devextreme/Lib/css/dx.spa.min.css",
+    "inputFiles": [
+      "Content/Backend/Devextreme/Lib/css/dx.spa.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/Backend/Templates/Site.min.css",
+    "inputFiles": [
+      "Content/Backend/Templates/Site.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Dashboard/dashboardController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Dashboard/dashboardController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/CategoryProduct/categoryproductController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/CategoryProduct/categoryproductController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/CategoryProduct/modifyCategoryProductController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/CategoryProduct/modifyCategoryProductController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Product/modifyProductController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Product/modifyProductController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Product/productController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Product/productController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Album/albumController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Album/albumController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Album/modifyAlbumController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Album/modifyAlbumController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/CategoryDocument/categoryDocumentController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/CategoryDocument/categoryDocumentController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/CategoryDocument/modifyCategoryDocumentController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/CategoryDocument/modifyCategoryDocumentController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Document/documentController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Document/documentController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Document/modifyDocumentController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Document/modifyDocumentController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Video/modifyVideoController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Video/modifyVideoController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/BackEnd/Video/videoController.min.js",
+    "inputFiles": [
+      "Scripts/BackEnd/Video/videoController.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/Frontend/Theme/DMC/css/animate.min.css",
+    "inputFiles": [
+      "Content/Frontend/Theme/DMC/css/animate.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/Frontend/Theme/DMC/css/style.min.css",
+    "inputFiles": [
+      "Content/Frontend/Theme/DMC/css/style.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/Frontend/Theme/DMC/js/index.min.js",
+    "inputFiles": [
+      "Content/Frontend/Theme/DMC/js/index.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/Frontend/Theme/DMC/js/jquery.superslide.2.1.1.min.js",
+    "inputFiles": [
+      "Content/Frontend/Theme/DMC/js/jquery.superslide.2.1.1.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/Frontend/Theme/DMC/js/articleBigImg.min.js",
+    "inputFiles": [
+      "Content/Frontend/Theme/DMC/js/articleBigImg.js"
+    ]
+  }
+]

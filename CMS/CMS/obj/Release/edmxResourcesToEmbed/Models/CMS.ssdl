@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MinhThanhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="alias" Type="nvarchar" MaxLength="250" />
+    <Property Name="description" Type="nvarchar" MaxLength="1025" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="published" Type="bit" Nullable="false" />
+    <Property Name="timeCreated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="GoogleAuthenticatorSecretKey" Type="nvarchar(max)" />
+    <Property Name="IsGoogleAuthenticatorEnabled" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Banner">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="link" Type="nvarchar(max)" />
+    <Property Name="textLink" Type="nvarchar" MaxLength="250" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="published" Type="bit" Nullable="false" />
+    <Property Name="note" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CategoryDocument">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="250" />
+    <Property Name="alias" Type="nvarchar" MaxLength="250" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="published" Type="bit" Nullable="false" />
+    <Property Name="timePublished" Type="datetime" />
+    <Property Name="metaDescription" Type="nvarchar(max)" />
+    <Property Name="metaKewords" Type="nvarchar(max)" />
+    <Property Name="author" Type="nvarchar" MaxLength="50" />
+    <Property Name="robots" Type="varchar" MaxLength="50" />
+    <Property Name="imageBanner" Type="nvarchar(max)" />
+    <Property Name="colorBackgroundBanner" Type="varchar(max)" />
+    <Property Name="colorTitleBanner" Type="varchar(max)" />
+    <Property Name="colorTextBanner" Type="varchar(max)" />
+    <Property Name="note" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CategoryPost">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+    <Property Name="idParentCategory" Type="int" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="alias" Type="varchar(max)" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="published" Type="bit" Nullable="false" />
+    <Property Name="timePublished" Type="datetime" />
+    <Property Name="isService" Type="bit" Nullable="false" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="tags" Type="nvarchar(max)" />
+    <Property Name="version" Type="int" Nullable="false" />
+    <Property Name="metaDescription" Type="nvarchar(max)" />
+    <Property Name="metaKewords" Type="nvarchar(max)" />
+    <Property Name="author" Type="nvarchar" MaxLength="50" />
+    <Property Name="robots" Type="varchar" MaxLength="50" />
+    <Property Name="imageBanner" Type="nvarchar(max)" />
+    <Property Name="colorBackgroundBanner" Type="varchar(max)" />
+    <Property Name="colorTitleBanner" Type="varchar(max)" />
+    <Property Name="colorTextBanner" Type="varchar(max)" />
+    <Property Name="note" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CategoryProduct">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+    <Property Name="idParentCategory" Type="int" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="alias" Type="varchar(max)" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="published" Type="bit" Nullable="false" />
+    <Property Name="timePublished" Type="datetime" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="tags" Type="nvarchar(max)" />
+    <Property Name="version" Type="int" Nullable="false" />
+    <Property Name="metaDescription" Type="nvarchar(max)" />
+    <Property Name="metaKewords" Type="nvarchar(max)" />
+    <Property Name="author" Type="nvarchar" MaxLength="50" />
+    <Property Name="robots" Type="varchar" MaxLength="50" />
+    <Property Name="imageBanner" Type="nvarchar(max)" />
+    <Property Name="colorBackgroundBanner" Type="varchar(max)" />
+    <Property Name="colorTitleBanner" Type="varchar(max)" />
+    <Property Name="colorTextBanner" Type="varchar(max)" />
+    <Property Name="note" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="idCategory" Type="int" />
+    <Property Name="description" Type="nvarchar" MaxLength="1025" />
+    <Property Name="timePublished" Type="date" />
+    <Property Name="nameUnit" Type="nvarchar" MaxLength="250" />
+    <Property Name="url" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="InfoCompany">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="250" />
+    <Property Name="intro" Type="nvarchar" MaxLength="250" />
+    <Property Name="address" Type="nvarchar(max)" />
+    <Property Name="tel" Type="varchar" MaxLength="250" />
+    <Property Name="hotline" Type="nvarchar" MaxLength="250" />
+    <Property Name="fax" Type="nvarchar" MaxLength="250" />
+    <Property Name="email" Type="varchar" MaxLength="250" />
+    <Property Name="mst" Type="varchar" MaxLength="250" />
+    <Property Name="facebook" Type="nvarchar" MaxLength="1025" />
+    <Property Name="youtube" Type="nvarchar" MaxLength="1025" />
+    <Property Name="map" Type="nvarchar" MaxLength="1025" />
+  </EntityType>
+  <EntityType Name="ItemAlbum">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idAlbum" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="250" />
+    <Property Name="description" Type="nvarchar" MaxLength="1025" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="colorBackground" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="colorText" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemMenu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idMenu" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="250" />
+    <Property Name="idType" Type="int" />
+    <Property Name="idComponent" Type="int" />
+    <Property Name="url" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="250" />
+    <Property Name="note" Type="nvarchar" MaxLength="1025" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCategory" Type="int" />
+    <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="alias" Type="varchar(max)" Nullable="false" />
+    <Property Name="content" Type="nvarchar(max)" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="published" Type="bit" Nullable="false" />
+    <Property Name="timePublished" Type="datetime" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="tags" Type="nvarchar(max)" />
+    <Property Name="version" Type="int" Nullable="false" />
+    <Property Name="featured" Type="bit" Nullable="false" />
+    <Property Name="metaDescription" Type="nvarchar(max)" />
+    <Property Name="metaKewords" Type="nvarchar(max)" />
+    <Property Name="author" Type="nvarchar" MaxLength="50" />
+    <Property Name="robots" Type="varchar" MaxLength="50" />
+    <Property Name="imageBanner" Type="nvarchar(max)" />
+    <Property Name="colorBackgroundBanner" Type="varchar(max)" />
+    <Property Name="colorTitleBanner" Type="varchar(max)" />
+    <Property Name="colorTextBanner" Type="varchar(max)" />
+    <Property Name="note" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCategory" Type="int" />
+    <Property Name="idUserCreated" Type="varchar" MaxLength="50" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="alias" Type="varchar(max)" Nullable="false" />
+    <Property Name="content" Type="nvarchar(max)" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="published" Type="bit" Nullable="false" />
+    <Property Name="timePublished" Type="datetime" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="tags" Type="nvarchar(max)" />
+    <Property Name="version" Type="int" Nullable="false" />
+    <Property Name="featured" Type="bit" Nullable="false" />
+    <Property Name="metaDescription" Type="nvarchar(max)" />
+    <Property Name="metaKewords" Type="nvarchar(max)" />
+    <Property Name="author" Type="nvarchar" MaxLength="50" />
+    <Property Name="robots" Type="varchar" MaxLength="50" />
+    <Property Name="imageBanner" Type="nvarchar(max)" />
+    <Property Name="colorBackgroundBanner" Type="varchar(max)" />
+    <Property Name="colorTitleBanner" Type="varchar(max)" />
+    <Property Name="colorTextBanner" Type="varchar(max)" />
+    <Property Name="note" Type="nvarchar(max)" />
+    <Property Name="maSanPham" Type="nvarchar" MaxLength="250" />
+    <Property Name="congsuatThietKe" Type="nvarchar" MaxLength="250" />
+    <Property Name="chukyTaoHinh" Type="nvarchar" MaxLength="250" />
+    <Property Name="congsuatDien" Type="nvarchar" MaxLength="250" />
+    <Property Name="cocheRungEp" Type="nvarchar" MaxLength="250" />
+    <Property Name="khayDoGach" Type="nvarchar" MaxLength="250" />
+    <Property Name="baohanh" Type="nvarchar" MaxLength="250" />
+    <Property Name="sanxuatTai" Type="nvarchar" MaxLength="250" />
+    <Property Name="nhansu" Type="nvarchar" MaxLength="250" />
+    <Property Name="dientichNhaMay" Type="nvarchar" MaxLength="250" />
+    <Property Name="congnhanLaiMay" Type="nvarchar" MaxLength="250" />
+    <Property Name="congnhanSanXuat" Type="nvarchar" MaxLength="250" />
+    <Property Name="congnhanBocXep" Type="nvarchar" MaxLength="250" />
+    <Property Name="nhaxuongDatMay" Type="nvarchar" MaxLength="250" />
+    <Property Name="khuvucPhoiGachNon" Type="nvarchar" MaxLength="250" />
+    <Property Name="baichuaThanhPham" Type="nvarchar" MaxLength="250" />
+    <Property Name="baichuaNguyenLieu" Type="nvarchar" MaxLength="250" />
+    <Property Name="congtrinhkhac" Type="nvarchar" MaxLength="250" />
+    <Property Name="tailieuKyThuat" Type="nvarchar(max)" />
+    <Property Name="kichthuoc" Type="nvarchar" MaxLength="50" />
+    <Property Name="khoiluong" Type="nvarchar" MaxLength="50" />
+    <Property Name="sovien" Type="nvarchar" MaxLength="50" />
+    <Property Name="cuongdonen" Type="nvarchar" MaxLength="50" />
+    <Property Name="dohutnuoc" Type="nvarchar" MaxLength="50" />
+    <Property Name="khoiluongTheTich" Type="nvarchar" MaxLength="50" />
+    <Property Name="dorong" Type="nvarchar" MaxLength="50" />
+    <Property Name="thongsoKyThuat" Type="nvarchar(max)" />
+    <Property Name="banve2d" Type="nvarchar(max)" />
+    <Property Name="banve3d" Type="nvarchar(max)" />
+    <Property Name="nangsuatTronTinhToan" Type="nvarchar" MaxLength="50" />
+    <Property Name="nangsuatTronThucTe" Type="nvarchar" MaxLength="50" />
+    <Property Name="dungtichMeTron" Type="nvarchar" MaxLength="50" />
+    <Property Name="chieucaoXaLieu" Type="nvarchar" MaxLength="50" />
+    <Property Name="hethongDieuKhien" Type="nvarchar" MaxLength="50" />
+    <Property Name="kieucoiTron" Type="nvarchar" MaxLength="50" />
+    <Property Name="dungtichCoiTron" Type="nvarchar" MaxLength="50" />
+    <Property Name="dungtichPheuChua" Type="nvarchar" MaxLength="50" />
+    <Property Name="capcotlieu" Type="nvarchar" MaxLength="50" />
+    <Property Name="vittaiCapXiMang" Type="nvarchar" MaxLength="50" />
+    <Property Name="tongcongsuatTieuThuDien" Type="nvarchar" MaxLength="50" />
+    <Property Name="hinhanh1" Type="nvarchar(max)" />
+    <Property Name="hinhanh2" Type="nvarchar(max)" />
+    <Property Name="hinhanh3" Type="nvarchar(max)" />
+    <Property Name="hinhanh4" Type="nvarchar(max)" />
+    <Property Name="hinhanh5" Type="nvarchar(max)" />
+    <Property Name="hinhanh6" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="250" />
+    <Property Name="alias" Type="nvarchar" MaxLength="250" />
+    <Property Name="description" Type="nvarchar" MaxLength="1025" />
+    <Property Name="url" Type="nvarchar(max)" />
+    <Property Name="featured" Type="bit" Nullable="false" />
+    <Property Name="published" Type="bit" Nullable="false" />
+    <Property Name="image" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MinhThanhModelStoreContainer">
+    <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryDocument" EntityType="Self.CategoryDocument" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryPost" EntityType="Self.CategoryPost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryProduct" EntityType="Self.CategoryProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InfoCompany" EntityType="Self.InfoCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemAlbum" EntityType="Self.ItemAlbum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemMenu" EntityType="Self.ItemMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

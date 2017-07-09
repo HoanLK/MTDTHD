@@ -1,0 +1,39 @@
+﻿@model CMS.Models.ViewModel.VideoViewModel
+<div class="sub_banner">
+    <img class="img-responsive" src="~/Content/Frontend/Theme/DMC/images/banner/banner-tin-tuc-1366x190.png" title="Video" alt="Video" />
+</div>
+<div class="bread_nav wrapper hidden-xs">
+    <a href="javascript:;"></a><a href="/" title="Trang chủ">Trang chủ</a>&nbsp;&gt;&nbsp;<a href="/video/" class="on" title="Video">Video</a>
+</div>
+<div class="main_con">
+    <div class="news">
+        <p class="c_ttl">Thư viện Video</p>
+        <div class="container">
+            <div class="col-md-8 col-sm-8" style="margin-bottom: 20px">
+                <iframe width="100%" height="480" src="@Model.Video.url" frameborder="0" allowfullscreen></iframe>
+                <h1 style="font-size: 1.5em; font-weight: bold">@Model.Video.title</h1>
+                @if (!string.IsNullOrEmpty(Model.Video.description))
+                {
+                    <p>
+                        <blockquote>@Model.Video.description</blockquote>
+                    </p>
+                }
+            </div>
+            <div class="news_list wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                <ul>
+                    @foreach (var item in Model.Videos)
+                    {
+                        <li class="col-md-4" style="width: 257px; margin: 0 0px 40px 0;">
+                            <a href="/tin-tuc/@item.alias-@item.id" title="@item.title">
+                                <div class="pic" style="width: 236px;margin-bottom:20px;"><img src="@item.image" alt="@item.title" title="@item.title" class="img-responsive"></div>
+                                <p class="ttl ln2" style="font-weight: bold">@item.title</p>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+

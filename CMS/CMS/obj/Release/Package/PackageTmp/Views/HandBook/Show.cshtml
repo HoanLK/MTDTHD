@@ -1,0 +1,45 @@
+﻿@model CMS.Models.ViewModel.ShowHandBookViewModel
+<!--Banner-->
+<div class="sub_banner">
+    <img class="img-responsive" src="~/Content/Frontend/Theme/DMC/images/banner/banner-tin-tuc-1366x190.png" title="Cẩm nang" alt="Cẩm nang" />
+</div>
+<!--Banner-->
+<!--BreakCrum-->
+<div class="bread_nav wrapper hidden-xs">
+    <a href="javascript:;"></a><a href="/" title="Trang chủ">Trang chủ</a>&nbsp;&gt;&nbsp;<a href="/cam-nang/" title="Cẩm nang">Cẩm nang</a>&nbsp;&gt;&nbsp;<a href="/cam-nang/@Model.Post.alias-@Model.Post.id" class="on" title="@Model.Post.title">@Model.Post.title</a>
+</div>
+<!--/BreakCrum-->
+<!--Content-->
+<div class="main_con row hidden-xs">
+    <div class="about_company row wrapper">
+        <p class="c_ttl">@Model.Post.title</p>
+        <div class="col-md-12 content-post">
+            @Html.Raw(Model.Post.content)
+        </div>
+        <div class="col-md-12">
+            <div class="news_link wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; margin-top: 30px">
+                <p class="ttl">TIN LIÊN QUAN</p>
+                @foreach (var item in Model.RelatePosts)
+            {
+                    <p>▶ <a href="/cam-nang/@item.alias-@item.id">@item.title</a></p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_con visible-xs">
+    <div class="about_company">
+        <p class="c_ttl">@Model.Post.title</p>
+        <div class="col-md-12 content-post">
+            @Html.Raw(Model.Post.content)
+        </div>
+        <div class="news_link wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; margin-top: 30px">
+            <p class="ttl">TIN LIÊN QUAN</p>
+            @foreach (var item in Model.RelatePosts)
+            {
+                <p><a href="/cam-nang/@item.alias-@item.id" title="@item.title"><span style="color:#000">▶ </span>@item.title</a></p>
+            }
+        </div>
+    </div>
+</div>
+<!--/Content-->

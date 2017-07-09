@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Quản lý Item ItemMenu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="itemitemMenuController">
+    <!--Header Section-->
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li class="active text-uppercase">@ViewBag.Title</li>
+        </ol>
+    </div>
+
+    <!--Body-->
+    <div class="section-body">
+        @*<input type="hidden" value="@WebSecurity.CurrentUserName" id="user" />*@
+        <div class="row">
+
+        </div>
+        <hr class="ruler-lg" />
+
+        <div class="card">
+            <div class="card-body">
+                @*<span us-spinner="{radius:15, width:4, length: 8}"></span>*@
+                <!--ItemMenus-->
+                <div class="col-md-12 col-sm-12 col-xs-12" id="itemMenu">
+                    <div id="gridContainer" dx-data-grid="gridItemMenus"></div>
+                    <div dx-context-menu="contextMenuItemMenu"></div>
+                </div>
+
+                <!--Popup Modify-->
+                <div class="popup" dx-popup="popupModifyItemMenu">
+                    <div data-options="dxTemplate: { name:'templateModifyItemMenu' }">
+                        <form ng-submit="SaveItemMenu($event)" dx-validation-group="{itemMenu}">
+                            <div class="row">
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="dx-field">
+                                        <label>Tiêu đề <span class="text-danger" title="Vui lòng nhập trường này" data-toggle="tooltip">(*)</span></label>
+                                        <div dx-text-box="controlItemMenu.title"
+                                             dx-validator="{validationRules:[{type: 'required', message: 'Nhập tiêu đề ItemMenu'}]}"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="dx-field">
+                                        <label>Menu</label>
+                                        <div dx-select-box="controlItemMenu.idMenu"
+                                             dx-validator="{validationRules:[{type: 'required', message: 'Chọn Menu'}]}"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="dx-field">
+                                        <label>Loại Item</label>
+                                        <div dx-select-box="controlItemMenu.idType"
+                                             dx-validator="{validationRules:[{type: 'required', message: 'Chọn loại Item'}]}"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="dx-field">
+                                        <label>Thành phần</label>
+                                        <div dx-select-box="controlItemMenu.idComponent"
+                                             dx-validator="{validationRules:[{type: 'required', message: 'Chọn thành phần'}]}"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="dx-field">
+                                        <label>Ghi chú</label>
+                                        <div dx-text-area="controlItemMenu.note"></div>
+                                    </div>
+                                </div>
+                                <div dx-validation-summary="{itemMenu}"></div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="pull-left" dx-button="{ text: 'Lưu', icon: 'floppy', type: 'success', useSubmitBehavior: true }"></div>
+                                <div class="pull-right" dx-button="{ text: 'Hủy bỏ', icon: 'clear', onClick: CancelSaveItemMenu, type: 'danger' }"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--Popup Delete-->
+                <div class="popup" dx-popup="popupDeleteItemMenu">
+                    <div data-options="dxTemplate: { name:'templateDeleteItemMenu' }">
+                        <div style="text-align: center" ng-cloak>{{titleDeleteItemMenu}}</div>
+                        <br />
+                        <div dx-button="{ text: 'Có', icon: 'floppy', onClick: ConfirmDeleteItemMenu, type: 'success' }"></div>
+                        <div dx-button="{ text: 'Không', icon: 'clear', onClick: CancelDeleteItemMenu, type: 'danger' }"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

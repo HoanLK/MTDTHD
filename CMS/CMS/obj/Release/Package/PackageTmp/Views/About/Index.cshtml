@@ -1,0 +1,49 @@
+﻿@model CMS.Models.Post
+<main class="sub">
+    <div class="main" id="MainArea">
+        <!--Content-->
+        <article class="icobalt ilayout content content-area" id="MainZone">
+            <div id="MainContent">
+                <h1>GIỚI THIỆU</h1>
+                @Html.Raw(Model.content)
+            </div>
+
+        </article>
+
+        <!--Sidebar-->
+        <aside class="icobalt ilayout side content-area" id="SideZone">
+            <nav class="side-nav" id="SideNavigation">
+                <header id="SideNavHeader">
+                    <h2><a href="">Đơn vị trực thuộc</a></h2>
+                </header>
+                <ul>
+                    <li class="level1 child0"><a href="" target="">Văn phòng Công ty</a></li>
+                    <li class="level1 child0"><a href="" target="">Xí nghiệp trực thuộc</a></li>
+                </ul>
+            </nav>
+
+            <nav class="side-nav" id="SideNavigation">
+                <header id="SideNavHeader">
+                    <h2><a href="">Sản phẩm</a></h2>
+                </header>
+                <ul>
+                    <li class="level1 child0"><a href="" target="">Sản xuất xe gom rác</a></li>
+                    <li class="level1 child0"><a href="" target="">Cho thuê nhà vệ sinh công cộng</a></li>
+                </ul>
+            </nav>
+
+            <nav class="side-nav" id="SideNavigation">
+                <header id="SideNavHeader">
+                    <h2><a href="">Dịch vụ</a></h2>
+                </header>
+                <ul>
+                    <li class="level1 child0"><a href="" target="">Cho thuê - bán thiết bị thu chứa rác</a></li>
+                    <li class="level1 child0"><a href="" target="">Thu gom - vận chuyển - xử lý rác thải sinh hoạt</a></li>
+                    <li class="level1 child0"><a href="" target="">Thu gom - vận chuyển - xử lý rác thải công nghiệp</a></li>
+                    <li class="level1 child0"><a href="" target="">Cho thuê nhà vệ sinh công cộng</a></li>
+                </ul>
+            </nav>
+
+        </aside>
+    </div>
+</main>

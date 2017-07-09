@@ -1,0 +1,476 @@
+﻿@model CMS.Models.ViewModel.NewsViewModel
+<main class="sub">
+    <div class="main" id="MainArea">
+        <!--Content-->
+        <article class="icobalt ilayout content content-area" id="MainZone">
+            <div id="BlogHome" class="blog-system">
+                <h1>Tin Tức - Sự Kiện</h1>
+                <ul class="post-list">
+                    @foreach (var item in Model.Posts)
+                    {
+                        <li class="post cf" data-item="i" data-key="702005">
+                            <div class="thumbnail" style="background-image:url(@item.image)"></div>
+                            <div class="post-preview cf">
+                                <h2><a href="/tin-tuc-su-kien/@item.alias-@item.id" title="@item.title">@item.title</a></h2>
+                                <div class="post-content">
+                                    <date>@item.timePublished.Value.ToShortDateString()</date>
+                                    <span>
+                                        @*@if (!string.IsNullOrEmpty(item.description))
+                                        {
+                                            if (item.description.Length >= 130)
+                                            {
+                                                @item.description.Substring(0, 130) <text>...</text>
+                                            }
+                                            else
+                                            {
+                                                @item.description
+                                            }
+                                        }*@
+                                        @item.description
+                                    </span>
+                                </div>
+                                <a href="/tin-tuc-su-kien/@item.alias-@item.id" class="btn" title="@item.title">Đọc tiếp</a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </article>
+        <!--Aside-->
+        <aside class="icobalt ilayout side content-area" id="SideZone">
+            <div id="RecentBlogPosts" class="side-nav sys-nav recent">
+                <header>
+                    <h2>Recent Posts</h2>
+                </header>
+                <ul>
+                    <li data-item="i" data-key="702005"><a href="/blog/2017/june/how-to-keep-outside-toys-clean/">How to Keep Outside Toys Clean</a></li>
+                    <li data-item="i" data-key="695808"><a href="/blog/2017/june/five-must-have-items-in-your-car/">Five Must Have Items in your Car</a></li>
+                    <li data-item="i" data-key="692992"><a href="/blog/2017/may/free-printable-summer-chore-chart/">Free Printable: Summer Chore Chart</a></li>
+                    <li data-item="i" data-key="687259"><a href="/blog/2017/may/why-you-should-buy-your-mother-a-housecleaning-s/">Why You Should Buy Your Mother a Housecleaning Service</a></li>
+                    <li data-item="i" data-key="683032"><a href="/blog/2017/april/five-easy-ways-to-give-back/">Five Easy Ways to Give Back</a></li>
+                    <li data-item="i" data-key="679202"><a href="/blog/2017/april/how-to-clean-white-items-in-your-home/">How to Clean White Items in your Home</a></li>
+                    <li data-item="i" data-key="670898"><a href="/blog/2017/march/why-is-spring-cleaning-important-/">Why is Spring Cleaning Important?</a></li>
+                    <li data-item="i" data-key="670249"><a href="/blog/2017/march/win-free-cleans-winner-ashley-m-in-wilmington-nc/">Win Free Cleans Winner: Ashley M. in Wilmington, NC</a></li>
+                </ul>
+            </div><div id="MostPopulaBlogs" class="side-nav sys-nav popular">
+                <header>
+                    <h2>Most Popular</h2>
+                </header>
+                <ul>
+                    <li data-item="i" data-key="373909"><a href="/blog/2013/may/green-tips-curb-appeal/">Green Tips: Curb Appeal</a></li>
+                    <li data-item="i" data-key="373943"><a href="/blog/2013/april/green-tips-at-the-office/">Green Tips: At The Office</a></li>
+                    <li data-item="i" data-key="373982"><a href="/blog/2013/april/the-cleaning-authority-of-cary-il-cleans-homes-o/">The Cleaning Authority of Cary, IL Cleans Homes of Women With Cancer</a></li>
+                    <li data-item="i" data-key="373967"><a href="/blog/2013/march/new-training-class/">New Training Class</a></li>
+                    <li data-item="i" data-key="373935"><a href="/blog/2013/march/green-cleaning-company-picks-up-national-award-8/">Green Cleaning Company Picks Up National Award – Macomb, MI</a></li>
+                </ul>
+            </div><div id="BlogArchive" class="side-nav sys-nav archive">
+                <header>
+                    <h2>Archives</h2>
+                </header>
+                <ul class="slide-list">
+                    <li class="level1">
+                        <a href="/blog/2017/">
+                            2017
+                            <em>(13)</em>
+                        </a>
+                        <ul>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2017/june/">
+                                    June
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2017/may/">
+                                    May
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2017/april/">
+                                    April
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2017/march/">
+                                    March
+                                    <em>(3)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2017/february/">
+                                    February
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2017/january/">
+                                    January
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="level1">
+                        <a href="/blog/2016/">
+                            2016
+                            <em>(46)</em>
+                        </a>
+                        <ul>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/december/">
+                                    December
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/november/">
+                                    November
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/october/">
+                                    October
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/september/">
+                                    September
+                                    <em>(5)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/august/">
+                                    August
+                                    <em>(5)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/july/">
+                                    July
+                                    <em>(4)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/june/">
+                                    June
+                                    <em>(5)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/may/">
+                                    May
+                                    <em>(4)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/april/">
+                                    April
+                                    <em>(4)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/march/">
+                                    March
+                                    <em>(5)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/february/">
+                                    February
+                                    <em>(4)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2016/january/">
+                                    January
+                                    <em>(4)</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="level1">
+                        <a href="/blog/2015/">
+                            2015
+                            <em>(22)</em>
+                        </a>
+                        <ul>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2015/november/">
+                                    November
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2015/october/">
+                                    October
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2015/september/">
+                                    September
+                                    <em>(3)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2015/august/">
+                                    August
+                                    <em>(3)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2015/june/">
+                                    June
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2015/may/">
+                                    May
+                                    <em>(3)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2015/april/">
+                                    April
+                                    <em>(1)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2015/march/">
+                                    March
+                                    <em>(3)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2015/february/">
+                                    February
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2015/january/">
+                                    January
+                                    <em>(1)</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="level1">
+                        <a href="/blog/2014/">
+                            2014
+                            <em>(37)</em>
+                        </a>
+                        <ul>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/december/">
+                                    December
+                                    <em>(1)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/november/">
+                                    November
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/october/">
+                                    October
+                                    <em>(3)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/september/">
+                                    September
+                                    <em>(6)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/august/">
+                                    August
+                                    <em>(5)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/july/">
+                                    July
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/june/">
+                                    June
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/may/">
+                                    May
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/april/">
+                                    April
+                                    <em>(5)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/march/">
+                                    March
+                                    <em>(3)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/february/">
+                                    February
+                                    <em>(3)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2014/january/">
+                                    January
+                                    <em>(3)</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="level1">
+                        <a href="/blog/2013/">
+                            2013
+                            <em>(41)</em>
+                        </a>
+                        <ul>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2013/december/">
+                                    December
+                                    <em>(4)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2013/november/">
+                                    November
+                                    <em>(3)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2013/october/">
+                                    October
+                                    <em>(4)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2013/september/">
+                                    September
+                                    <em>(4)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2013/august/">
+                                    August
+                                    <em>(8)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2013/july/">
+                                    July
+                                    <em>(6)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2013/june/">
+                                    June
+                                    <em>(3)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2013/may/">
+                                    May
+                                    <em>(4)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2013/april/">
+                                    April
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2013/march/">
+                                    March
+                                    <em>(2)</em>
+                                </a>
+                            </li>
+                            <li class="level2" data-item="i">
+                                <a href="/blog/2013/january/">
+                                    January
+                                    <em>(1)</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><div id="BlogCategoryList" class="side-nav sys-nav categories">
+                <header>
+                    <h2>Categories</h2>
+                </header>
+                <ul class="cf">
+                    <li data-item="i">
+                        <a href="/blog/categories/from-the-cleaning-authority/">
+                            From The Cleaning Authority
+                            <em>(6)</em>
+                        </a>
+                    </li>
+                    <li data-item="i">
+                        <a href="/blog/categories/green-tips/">
+                            Green Tips
+                            <em>(37)</em>
+                        </a>
+                    </li>
+                    <li data-item="i">
+                        <a href="/blog/categories/home-life/">
+                            Home Life
+                            <em>(73)</em>
+                        </a>
+                    </li>
+                    <li data-item="i">
+                        <a href="/blog/categories/how-to/">
+                            How To
+                            <em>(26)</em>
+                        </a>
+                    </li>
+                    <li data-item="i">
+                        <a href="/blog/categories/organization/">
+                            Organization
+                            <em>(14)</em>
+                        </a>
+                    </li>
+                    <li data-item="i">
+                        <a href="/blog/categories/tca-news-events/">
+                            TCA News/Events
+                            <em>(11)</em>
+                        </a>
+                    </li>
+                    <li data-item="i">
+                        <a href="/blog/categories/win-free-cleans/">
+                            Win Free Cleans
+                            <em>(1)</em>
+                        </a>
+                    </li>
+                </ul>
+            </div><div id="SideNavCTA" class="side-cta">
+                <div id="SideNavCTAContent"></div>
+            </div>
+
+        </aside>
+    </div>
+    <div id="DetailArea">
+        <div class="icobalt ilayout iarea main" id="DetailZone"></div>
+    </div>
+    <div class="icobalt ilayout iarea" id="SatisfactionZone"></div>
+</main>

@@ -1,0 +1,69 @@
+﻿@model CMS.Models.VerifyCodeViewModel
+
+@{
+    ViewBag.Title = "Xác thực";
+    Layout = "/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <!--Header Section-->
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li class="active text-uppercase" style="width: 100%">
+                <div class="col-md-4">
+                    Xác thực Đăng nhập
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!--Body-->
+    <div class="section-body">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="col-xs-6">
+                        @using (Html.BeginForm("VerifyCode", "Account", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("provider", @Model.Provider)
+                            @Html.Hidden("rememberMe", @Model.RememberMe)
+                            <h4>Vui lòng nhập mã xác thực của bạn</h4>
+
+                            <br /><br /><br />
+
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Code, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <div class="checkbox">
+                                        @Html.CheckBoxFor(m => m.RememberBrowser)
+                                        @Html.Label("Ghi nhớ Trình duyệt này")
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-default" value="Xác nhận" />
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                <div class="col-xs-6">
+                    <img src="~/content/authenticator-iphone-sample.png" class="img-responsive" style="margin-top: 20px" />
+                </div>
+
+                <br style="clear: both" />
+            </div>
+        </div>
+    </div>
+</div>
+</div>

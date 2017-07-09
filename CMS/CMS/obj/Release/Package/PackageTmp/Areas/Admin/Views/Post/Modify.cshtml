@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = "Thêm bài viết";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="modifyPostController">
+    <!--Header Section-->
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li class="active text-uppercase" style="width: 100%">
+                <div class="col-md-4">
+                    Thêm bài viết
+                </div>
+                <div class="col-md-8">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-success" ng-click="Save()"><span class="fa fa-edit"></span> Lưu</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="SaveAndExit()"><span class="fa fa-check-square-o"></span> Lưu & Thoát</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="SaveAndAdd()"><span class="fa fa-plus"></span> Lưu & Thêm mới</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-danger" ng-click="Cancel()"><span class="fa fa-remove"></span> Hủy bỏ</button>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!--Body-->
+    <div class="section-body">
+        @*<input type="hidden" value="@WebSecurity.CurrentUserName" id="user" />*@
+        <div class="row">
+
+        </div>
+        <hr class="ruler-lg" />
+
+        <div class="card">
+            <div class="card-body">
+                <form class="form" role="form">
+                    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group  " ng-class="{'has-error':!post.title, 'has-success':post.title}">
+                                <input type="text" class="form-control" id="title" name="title" ng-model="post.title" ng-change="GenAlias()">
+                                <label for="title">Tiêu đề *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="alias" ng-model="post.alias" name="alias" readonly>
+                                <label for="alias">Alias</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row">
+                    <div class="card-head">
+                        <ul class="nav nav-tabs" data-toggle="tabs">
+                            <li class="active"><a href="#noidung">Nội dung</a></li>
+                            <li class=""><a href="#banner">Banner</a></li>
+                            <li class=""><a href="#seo">SEO</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body tab-content">
+                        <div class="tab-pane active" id="noidung">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <form class="form" role="form">
+                                        <div class="form-group ">
+                                            <textarea id="ckeditor" data-ck-editor class="form-control control-12-rows" ng-model="post.content" name="content"></textarea>
+                                            <label for="description">Nội dung</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <textarea class="form-control" rows="3" placeholder="" ng-model="post.description"></textarea>
+                                            <label for="description">Mô tả</label>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <form class="form" role="form">
+                                        <div class="form-group ">
+                                            <select id="idCategory" name="idCategory" class="form-control" ng-model="post.idCategory">
+                                                <option ng-value="option.id" ng-repeat="option in categoryPosts" ng-selected="post.idCategory == option.id">{{option.title}}</option>
+                                            </select>
+                                            <label for="idCategory">Danh mục</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <select id="published" name="published" class="form-control" ng-model="post.published">
+                                                <option ng-value="option.value" ng-repeat="option in statuses" ng-selected="post.published == option.value">{{option.text}}</option>
+                                            </select>
+                                            <label for="published">Trạng thái</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <select id="featured" name="featured" class="form-control" ng-model="post.featured">
+                                                <option ng-value="option.value" ng-repeat="option in featureds" ng-selected="post.featured == option.value">{{option.text}}</option>
+                                            </select>
+                                            <label for="featured">Nổi bật</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <textarea name="note" id="note" class="form-control" rows="2" placeholder="" ng-model="post.note"></textarea>
+                                            <label for="note">Ghi chú</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="image" ng-model="post.image">
+                                                    <label for="image">Hình ảnh</label>
+                                                </div>
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-default" ng-click="ChooseImage()" type="button">Chọn</button>
+                                                </div>
+                                            </div>
+                                            <img class="img-responsive" src="{{post.image}}" ng-show="post.image" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="banner">
+                            <div class="row">
+                                <form class="form" role="form">
+                                    <div class="form-group col-md-6">
+                                        <div class="input-group">
+                                            <div class="input-group-content">
+                                                <input type="text" class="form-control" id="imageBanner" ng-model="post.imageBanner">
+                                                <label for="imageBanner">Hình ảnh Banner</label>
+                                            </div>
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-default" ng-click="ChooseImageBanner()" type="button">Chọn</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="color" class="form-control" ng-model="post.colorBackgroundBanner">
+                                        <label>Màu nền Banner</label>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="color" class="form-control" ng-model="post.colorTitleBanner">
+                                        <label>Màu chữ tiêu đề Banner</label>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="color" class="form-control" ng-model="post.colorTextBanner">
+                                        <label>Màu chữ mô tả Banner</label>
+                                    </div>
+                                </form>
+                                <br />
+                                <!--Demo Banner-->
+                                <div class="col-md-12">
+                                    <div class="bannerDemo">
+                                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                            <div class="carousel-inner" role="listbox">
+                                                <div class="item banner-child active" style="background-image: url({{post.imageBanner}}); background-color: {{post.colorBackgroundBanner}}; ">
+                                                    <div class="banner-child-content">
+                                                        <div class="banner-child-title" style="color: {{post.colorTitleBanner}}">{{post.title}}</div>
+                                                        <div class="banner-child-des" style="color: {{post.colorTextBanner}}">{{post.description}}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="seo">
+                            <form class="form" role="form">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <input type="text" value="" id="author" class="form-control" name="author" ng-model="post.metaKewords" />
+                                                    <label for="metakewords">Thẻ từ khóa</label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" value="" id="author" class="form-control" name="author" ng-model="post.author" />
+                                                    <label for="author">Tác giả</label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <select id="robots" name="robots" class="form-control" ng-model="post.robots">
+                                                        <option value="Index, Follow" ng-selected="post.robots == 'Index, Follow'">Index, Follow</option>
+                                                        <option value="No index, Follow" ng-selected="post.robots == 'No index, Follow'">No index, Follow</option>
+                                                        <option value="Index, No follow" ng-selected="post.robots == 'Index, No follow'">Index, No follow</option>
+                                                        <option value="No index, No follow" ng-selected="post.robots == 'No index, No follow'">No index, No follow</option>
+                                                    </select>
+                                                    <label for="robots">Robots</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <textarea name="metadescription" id="metadescription" class="form-control" rows="6" placeholder="" ng-model="post.metaDescription"></textarea>
+                                                    <label for="metadescription">Thẻ mô tả</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar fa-lg"></span></span>
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="timePublished" ng-model="post.timePublished" readonly>
+                                                    <label for="timePublished">Ngày tạo</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-user fa-lg"></span></span>
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="idUserCreated" ng-model="post.idUserCreated" name="idUserCreated" readonly>
+                                                    <label for="idUserCreated">Người tạo</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

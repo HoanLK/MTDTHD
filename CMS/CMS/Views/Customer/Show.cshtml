@@ -1,0 +1,27 @@
+﻿@model CMS.Models.ViewModel.CustomerViewModel
+<div class="sub_banner">
+    <img src="http://www.concrete-mix-plant.com/d/img/news-banner.jpg" alt="">
+</div>
+<div class="bread_nav wrapper">
+    <a href="javascript:;"></a><a href="/" title="Trang chủ">Trang chủ</a>&nbsp;&gt;&nbsp;<a href="/khach-hang/" title="Khách hàng">Khách hàng</a>&nbsp;&gt;&nbsp;<a href="/khach-hang/@Model.CategoryCustomer.alias" class="on" title="@Model.CategoryCustomer.title">@Model.CategoryCustomer.title</a>
+</div>
+<div class="main_con">
+    <div class="news wrapper">
+        <p class="c_ttl">@Model.CategoryCustomer.title</p>
+
+        <div class="news_list wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+            <ul class="clearfix">
+                @foreach (var item in Model.Customers)
+                {
+                    <li class="fl">
+                        <a href="/khach-hang/@item.alias-@item.id" title="@item.title">
+                            <div class="pic"><img src="@item.image" alt=""></div>
+                            <p class="ttl ln2" style="font-weight: bold">@item.title</p>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+    </div>
+</div>

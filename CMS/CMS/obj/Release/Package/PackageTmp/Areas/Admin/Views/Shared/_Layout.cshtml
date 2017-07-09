@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>KNT - @ViewBag.Title</title>
+
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your,keywords">
+    <meta name="description" content="Short explanation about this website">
+    @*<link href="/Content/Images/images/CTA-KhongXoa/favicon.png" rel="shortcut icon" type="image/x-icon" />*@
+
+    <!-- BEGIN STYLESHEETS -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700,800' rel='stylesheet' type='text/css' />
+    <link href="~/Content/Backend/Templates/Material/css/theme-default/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Templates/Material/css/theme-default/materialadmin.min.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Templates/Material/css/theme-default/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Templates/Material/css/theme-default/material-design-iconic-font.min.css" rel="stylesheet" />
+
+    <!--Message-->
+    <link href="~/Content/Vendors/toastr/toastr.min.css" rel="stylesheet" />
+
+    <!--DEVEXTREME-->
+    <link href="~/Content/Backend/Devextreme/Lib/css/dx.spa.min.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Devextreme/Lib/css/dx.common.min.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Devextreme/Lib/css/generic.light.custom.min.css" rel="stylesheet" />
+    @*<link href="~/Content/Devextreme/Lib/css/dx.light.css" rel="stylesheet" />*@
+
+    <link href="~/Content/Backend/Templates/Site.min.css" rel="stylesheet" />
+
+
+    <!-- Additional CSS includes -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="~/Content/admin/js/libs/utils/html5shiv.js"></script>
+    <script type="text/javascript" src="~/Content/admin/js/libs/utils/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="menubar-hoverable header-fixed" ng-app="admin" style="background: #e5e6e6">
+    <!-- HEADER-->
+    <header id="header">
+        <div class="headerbar">
+            <!--Logo-->
+            <div class="headerbar-left">
+                <ul class="header-nav header-nav-options">
+                    <li class="header-nav-brand">
+                        <div class="brand-holder">
+                            <a href="/">
+                                <span class="text-lg text-bold text-primary">DmC</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--HeaderBar-->
+            <div class="headerbar-right">
+                <ul class="header-nav header-nav-options">
+                    <!-- Search form -->
+                    <li>
+                        <form class="navbar-search" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="headerSearch" placeholder="Enter your keyword">
+                            </div>
+                            <button type="submit" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-search"></i></button>
+                        </form>
+                    </li>
+                </ul>
+                <!--Profile-->
+                <ul class="header-nav header-nav-profile">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+                            @*<img src="~/Content/Frontend/Theme/images/user.png" class="img-responsive" />*@
+                            <span class="profile-info" style="font-size: 12px">
+                                <b>@User.Identity.Name</b><br />
+                                <span>Administrator</span>
+                                    @*<span>@Roles.GetRolesForUser(WebSecurity.CurrentUserName)[0]</span>*@
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu animation-dock">
+                            <li><a href="@Url.Action("Index", "Manage", new { Area = "" })"><i class="fa fa-fw fa-key text-success"></i> Quản lý tài khoản</a></li>
+                            <li><a href="@Url.Action("Logoff", "Account", new { Area = "" })"><i class="fa fa-fw fa-power-off text-danger"></i> Đăng  xuất</a></li>
+                        </ul><!--end .dropdown-menu -->
+                    </li><!--end .dropdown -->
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- BASE-->
+    <div id="base" class="menubar-hoverable">
+        <!-- OFFCANVAS LEFT -->
+        <div class="offcanvas">
+        </div>
+
+        <!-- CONTENT-->
+        <div id="content">
+            <!-- SECTION -->
+            <section>
+                @RenderBody()
+            </section>
+        </div>
+
+        <!-- MENUBAR-->
+        <div id="menubar" class="menubar-inverse animate">
+            <div class="menubar-fixed-panel">
+                <div>
+                    <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <div class="expanded">
+                    <a href="@Url.Action("Index", "Dashboard", "Admin")">
+                        <span class="text-lg text-bold text-primary ">MATERIAL&nbsp;ADMIN</span>
+                    </a>
+                </div>
+            </div>
+            <div class="menubar-scroll-panel">
+
+                <!-- BEGIN MAIN MENU -->
+                <ul id="main-menu" class="gui-controls">
+
+                    <!-- BEGIN DASHBOARD -->
+                    @*<li>
+                        <a href="@Url.Action("Index", "Dashboard", new { Area = "Admin" })">
+                            <div class="gui-icon"><i class="md md-home"></i></div>
+                            <span class="title">Trang chủ</span>
+                        </a>
+                    </li>*@
+                    <!-- Sản phẩm -->
+                    <li class="gui-folder">
+                        <a>
+                            <div class="gui-icon"><i class="fa fa-building-o"></i></div>
+                            <span class="title">Sản phẩm</span>
+                        </a>
+                        <!--start submenu -->
+                        <ul>
+                            <li><a href="@Url.Action("Index", "CategoryProduct", new { area = "Admin" })"><span class="title">Danh mục</span></a></li>
+                            <li><a href="@Url.Action("Index", "Product", new { area = "Admin" })"><span class="title">Sản phẩm</span></a></li>
+                        </ul>
+                    </li>
+                    <!-- Bài viết -->
+                    <li class="gui-folder">
+                        <a>
+                            <div class="gui-icon"><i class="fa fa-newspaper-o"></i></div>
+                            <span class="title">Bài viết</span>
+                        </a>
+                        <!--start submenu -->
+                        <ul>
+                            <li><a href="@Url.Action("Index", "CategoryPost", new { area = "Admin" })"><span class="title">Danh mục</span></a></li>
+                            <li><a href="@Url.Action("Index", "Post", new { area = "Admin" })"><span class="title">Bài viết</span></a></li>
+                        </ul>
+                    </li>
+                    <!-- Tài liệu -->
+                    <li class="gui-folder">
+                        <a>
+                            <div class="gui-icon"><i class="fa fa-book"></i></div>
+                            <span class="title">Tài liệu</span>
+                        </a>
+                        <!--start submenu -->
+                        <ul>
+                            <li><a href="@Url.Action("Index", "CategoryDocument", new { area = "Admin" })"><span class="title">Danh mục</span></a></li>
+                            <li><a href="@Url.Action("Index", "Document", new { area = "Admin" })"><span class="title">Tài liệu</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Banner", new { area = "Admin" })">
+                            <div class="gui-icon"><i class="fa fa-image"></i></div>
+                            <span class="title">Banner</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Album", new { area = "Admin" })">
+                            <div class="gui-icon"><i class="fa fa-image"></i></div>
+                            <span class="title">Thư viện Ảnh</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Video", new { area = "Admin" })">
+                            <div class="gui-icon"><i class="fa fa-youtube-play"></i></div>
+                            <span class="title">Videos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "InfoCompany", new { Area = "Admin" })">
+                            <div class="gui-icon"><i class="fa fa-building"></i></div>
+                            <span class="title">Thông tin Công ty</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Account", new { Area = ""})">
+                            <div class="gui-icon"><i class="fa fa-users"></i></div>
+                            <span class="title">Người dùng</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="menubar-foot-panel">
+                    <small class="no-linebreak hidden-folded">
+                        <span class="opacity-75">Copyright &copy; 2017</span> <strong>KNT</strong>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- BEGIN JAVASCRIPT -->
+
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Content/Backend/Templates/Material/js/libs/jquery/jquery-1.11.2.min.js"></script>
+    <script src="~/Content/Backend/Templates/Material/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/Content/Backend/Templates/Material/js/libs/bootstrap/bootstrap.min.js"></script>
+    <!--CKEditor-->
+    <script type="text/javascript" src='@Url.Content("~/ckfinder/ckfinder.js")'></script>
+    <script type="text/javascript" src='@Url.Content("~/ckeditor/ckeditor.js")'></script>
+    <script type="text/javascript"> CKFinder.setupCKEditor(null, '@Url.Content("~/ckfinder/")'); </script>
+
+    <!--DEVEXTREME-->
+    <script src="~/Content/Backend/Devextreme/Lib/js/jszip.min.js"></script>
+
+    <!--AngularJS-->
+    <script src="~/Content/Vendors/angular-1.6.3/angular.min.js"></script>
+    <script src="~/Content/Vendors/angular-1.6.3/angular-sanitize.min.js"></script>
+    <script src="~/Content/Vendors/angular-1.6.3/angular-route.min.js"></script>
+    <script src="~/Content/Vendors/angular-1.6.3/angular-touch.min.js"></script>
+
+    <!--Template-->
+    <script src="~/Content/Backend/Templates/Material/js/libs/spin.js/spin.min.js"></script>
+    <script src="~/Content/Backend/Templates/Material/js/libs/autosize/jquery.autosize.min.js"></script>
+    <script src="~/Content/Backend/Templates/Material/js/libs/nanoscroller/jquery.nanoscroller.js"></script>
+
+    <!--TOAST-->
+    <script src="~/Content/Vendors/toastr/toastr.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            toastr.options = {
+                "positionClass": "toast-bottom-right",
+                "timeOut": "1500",
+                "progressBar": true
+            };
+        });
+    </script>
+
+    <!--LOADING SPINNER-->
+    <script src="~/Content/Vendors/loading-spinner/spin.min.js"></script>
+    <script src="~/Content/Vendors/loading-spinner/angular-spinner.min.js"></script>
+    <script src="~/Content/Vendors/loading-spinner/angular-loading-spinner.js"></script>
+
+    <!--FCSA-NUMBER FORMAT TEXTBOX-->
+    <script src="~/Content/Vendors/fcsa-number/fcsaNumber.min.js"></script>
+
+    <!--DEVEXTREME-->
+    <script type="text/javascript" src="~/Content/Backend/Devextreme/Lib/js/cldr.min.js"></script>
+    <script type="text/javascript" src="~/Content/Backend/Devextreme/Lib/js/cldr/event.min.js"></script>
+    <script type="text/javascript" src="~/Content/Backend/Devextreme/Lib/js/cldr/supplemental.min.js"></script>
+    <script type="text/javascript" src="~/Content/Backend/Devextreme/Lib/js/cldr/unresolved.min.js"></script>
+    <script type="text/javascript" src="~/Content/Backend/Devextreme/Lib/js/globalize.min.js"></script>
+    <script type="text/javascript" src="~/Content/Backend/Devextreme/Lib/js/globalize/message.min.js"></script>
+    <script type="text/javascript" src="~/Content/Backend/Devextreme/Lib/js/globalize/number.min.js"></script>
+    <script type="text/javascript" src="~/Content/Backend/Devextreme/Lib/js/globalize/currency.min.js"></script>
+    <script type="text/javascript" src="~/Content/Backend/Devextreme/Lib/js/globalize/date.min.js"></script>
+    <script type="text/javascript" src="~/Content/Backend/Devextreme/Lib/js/dx.all.js"></script>
+
+
+    <script src="~/Content/Backend/Templates/Material/js/core/source/App.min.js"></script>
+    <script src="~/Content/Backend/Templates/Material/js/core/source/AppNavigation.js"></script>
+    <script src="~/Content/Backend/Templates/Material/js/core/source/AppOffcanvas.js"></script>
+    <script src="~/Content/Backend/Templates/Material/js/core/source/AppCard.js"></script>
+    <script src="~/Content/Backend/Templates/Material/js/core/source/AppForm.js"></script>
+    <script src="~/Content/Backend/Templates/Material/js/core/source/AppNavSearch.js"></script>
+
+
+
+    <!--NG-CKEditor-->
+    <script src="~/Content/Vendors/ng-ckeditor.min.js"></script>
+
+    <!--MY SCRIPTS-->
+
+    <script src="~/Scripts/BackEnd/admin.js"></script>
+    @*<script src="~/Scripts/BackEnd/routing.js"></script>*@
+
+
+    <!--Factory-->
+    <script src="~/Scripts/BackEnd/Factory/aliasFactory.min.js"></script>
+    <script src="~/Scripts/BackEnd/Factory/urlFactory.min.js"></script>
+
+    <!--Dashboard-->
+    <script src="~/Scripts/BackEnd/Dashboard/dashboardController.min.js"></script>
+
+    <!--Category Product-->
+    <script src="~/Scripts/BackEnd/CategoryProduct/categoryproductController.min.js"></script>
+    <script src="~/Scripts/BackEnd/CategoryProduct/modifyCategoryProductController.min.js"></script>
+
+    <!--Category Post-->
+    <script src="~/Scripts/BackEnd/CategoryPost/categorypostController.min.js"></script>
+    <script src="~/Scripts/BackEnd/CategoryPost/modifyCategoryPostController.min.js"></script>
+
+    <!--Product-->
+    <script src="~/Scripts/BackEnd/Product/productController.min.js"></script>
+    <script src="~/Scripts/BackEnd/Product/modifyProductController.min.js"></script>
+
+    <!--Post-->
+    <script src="~/Scripts/BackEnd/Post/postController.min.js"></script>
+    <script src="~/Scripts/BackEnd/Post/modifyPostController.min.js"></script>
+
+    <!--Banner-->
+    <script src="~/Scripts/BackEnd/Banner/bannerController.min.js"></script>
+    <script src="~/Scripts/BackEnd/Banner/modifyBannerController.min.js"></script>
+
+    <!--Menu-->
+    @*<script src="~/Scripts/BackEnd/Menu/menuController.js"></script>
+    <script src="~/Scripts/BackEnd/Menu/itemmenuController.js"></script>*@
+
+    <!--Album-->
+    <script src="~/Scripts/BackEnd/Album/albumController.min.js"></script>
+    <script src="~/Scripts/BackEnd/Album/modifyAlbumController.min.js"></script>
+
+    <!--Info Company-->
+    <script src="~/Scripts/BackEnd/InfoCompany/infoCompanyController.min.js"></script>
+
+    <!--Video-->
+    <script src="~/Scripts/BackEnd/Video/videoController.min.js"></script>
+    <script src="~/Scripts/BackEnd/Video/modifyVideoController.min.js"></script>
+
+    <!--Category Document-->
+    <script src="~/Scripts/BackEnd/CategoryDocument/categoryDocumentController.min.js"></script>
+    <script src="~/Scripts/BackEnd/CategoryDocument/modifyCategoryDocumentController.min.js"></script>
+
+    <!--Document-->
+    <script src="~/Scripts/BackEnd/Document/documentController.min.js"></script>
+    <script src="~/Scripts/BackEnd/Document/modifyDocumentController.min.js"></script>
+
+    <!--Account-->
+    <script src="~/Scripts/BackEnd/Account/accountController.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,555 @@
+﻿
+@{
+    ViewBag.Title = "Thêm sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="modifyProductController">
+    <!--Header Section-->
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li class="active text-uppercase" style="width: 100%">
+                <div class="col-md-4">
+                    Thêm sản phẩm
+                </div>
+                <div class="col-md-8">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-success" ng-click="Save()"><span class="fa fa-edit"></span> Lưu</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="SaveAndExit()"><span class="fa fa-check-square-o"></span> Lưu & Thoát</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="SaveAndAdd()"><span class="fa fa-plus"></span> Lưu & Thêm mới</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-danger" ng-click="Cancel()"><span class="fa fa-remove"></span> Hủy bỏ</button>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!--Body-->
+    <div class="section-body">
+        @*<input type="hidden" value="@WebSecurity.CurrentUserName" id="user" />*@
+        <div class="row">
+
+        </div>
+        <hr class="ruler-lg" />
+
+        <div class="card">
+            <div class="card-body">
+                <form class="form" role="form">
+                    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group  " ng-class="{'has-error':!product.title, 'has-success':product.title}">
+                                <input type="text" class="form-control" id="title" name="title" ng-model="product.title" ng-change="GenAlias()">
+                                <label for="title">Tiêu đề *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="alias" ng-model="product.alias" name="alias" readonly>
+                                <label for="alias">Alias</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row">
+                    <div class="card-head">
+                        <ul class="nav nav-tabs" data-toggle="tabs">
+                            <li class="active"><a href="#noidung">Nội dung</a></li>
+                            <li class=""><a href="#chitietsanpham">Chi tiết sản phẩm</a></li>
+                            <li class=""><a href="#tailieukythuat">Tài liệu kỹ thuật</a></li>
+                            <li class=""><a href="#banner">Banner</a></li>
+                            <li class=""><a href="#seo">SEO</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body tab-content">
+                        <!--Nội dung-->
+                        <div class="tab-pane active" id="noidung">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <form class="form" role="form">
+                                        @*<div class="form-group ">
+                                            <textarea id="ckeditor" data-ck-editor class="form-control control-12-rows" ng-model="product.content" name="content"></textarea>
+                                            <label for="description">Nội dung</label>
+                                        </div>*@
+                                        <div class="form-group ">
+                                            <textarea class="form-control" rows="3" placeholder="" ng-model="product.description"></textarea>
+                                            <label for="description">Mô tả</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <div class="input-group">
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="hinhanh1" ng-model="product.hinhanh1">
+                                                    <label for="hinhanh1">Ảnh 1 (580x435) </label>
+                                                </div>
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-default" ng-click="ChooseImage1()" type="button">Chọn</button>
+                                                </div>
+                                            </div>
+                                            <img class="img-responsive" src="{{product.hinhanh1}}" ng-show="product.hinhanh1" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <div class="input-group">
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="hinhanh2" ng-model="product.hinhanh2">
+                                                    <label for="hinhanh2">Ảnh 2 (580x435) </label>
+                                                </div>
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-default" ng-click="ChooseImage2()" type="button">Chọn</button>
+                                                </div>
+                                            </div>
+                                            <img class="img-responsive" src="{{product.hinhanh2}}" ng-show="product.hinhanh2" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <div class="input-group">
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="hinhanh3" ng-model="product.hinhanh3">
+                                                    <label for="hinhanh3">Ảnh 3 (580x435) </label>
+                                                </div>
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-default" ng-click="ChooseImage3()" type="button">Chọn</button>
+                                                </div>
+                                            </div>
+                                            <img class="img-responsive" src="{{product.hinhanh3}}" ng-show="product.hinhanh3" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <div class="input-group">
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="hinhanh4" ng-model="product.hinhanh4">
+                                                    <label for="hinhanh4">Ảnh 4 (580x435) </label>
+                                                </div>
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-default" ng-click="ChooseImage4()" type="button">Chọn</button>
+                                                </div>
+                                            </div>
+                                            <img class="img-responsive" src="{{product.hinhanh4}}" ng-show="product.hinhanh4" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <div class="input-group">
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="hinhanh5" ng-model="product.hinhanh5">
+                                                    <label for="hinhanh5">Ảnh 5 (580x435) </label>
+                                                </div>
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-default" ng-click="ChooseImage5()" type="button">Chọn</button>
+                                                </div>
+                                            </div>
+                                            <img class="img-responsive" src="{{product.hinhanh5}}" ng-show="product.hinhanh5" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <div class="input-group">
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="hinhanh6" ng-model="product.hinhanh6">
+                                                    <label for="image">Ảnh 6 (580x435) </label>
+                                                </div>
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-default" ng-click="ChooseImage6()" type="button">Chọn</button>
+                                                </div>
+                                            </div>
+                                            <img class="img-responsive" src="{{product.hinhanh6}}" ng-show="product.hinhanh6" />
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <form class="form" role="form">
+                                        <div class="form-group ">
+                                            <select id="idCategory" name="idCategory" class="form-control" ng-model="product.idCategory">
+                                                <option value="">-- Không có danh mục --</option>
+                                                <option ng-value="option.id" ng-repeat="option in categoryProducts" ng-selected="product.idCategory == option.id">{{option.title}}</option>
+                                            </select>
+                                            <label for="idCategory">Danh mục</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <select id="published" name="published" class="form-control" ng-model="product.published">
+                                                <option ng-value="option.value" ng-repeat="option in statuses" ng-selected="product.published == option.value">{{option.text}}</option>
+                                            </select>
+                                            <label for="published">Trạng thái</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <select id="featured" name="featured" class="form-control" ng-model="product.featured">
+                                                <option ng-value="option.value" ng-repeat="option in featureds" ng-selected="product.featured == option.value">{{option.text}}</option>
+                                            </select>
+                                            <label for="featured">Nổi bật</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <textarea name="note" id="note" class="form-control" rows="2" placeholder="" ng-model="product.note"></textarea>
+                                            <label for="note">Ghi chú</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="image" ng-model="product.image">
+                                                    <label for="image">Hình ảnh đại diện (750x500) </label>
+                                                </div>
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-default" ng-click="ChooseImage()" type="button">Chọn</button>
+                                                </div>
+                                            </div>
+                                            <img class="img-responsive" src="{{product.image}}" ng-show="product.image" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/Nội dung-->
+                        <!--Chi tiết sản phẩm-->
+                        <div class="tab-pane" id="chitietsanpham">
+                            <!--Dây chuyền DmCLine-->
+                            <form class="form" role="form" ng-show="product.idCategory == 2">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card-head card-head-sm style-primary" style="margin-bottom:20px">
+                                            <header><b class="text-uppercase">Thông số kỹ thuật</b></header>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="congsuatThietKe" class="form-control" name="congsuatThietKe" ng-model="product.congsuatThietKe" />
+                                            <label for="congsuatThietKe">Công suất thiết kế</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="chukyTaoHinh" class="form-control" name="chukyTaoHinh" ng-model="product.chukyTaoHinh" />
+                                            <label for="chukyTaoHinh">Chù kỳ tạo hình</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="congsuatDien" class="form-control" name="congsuatDien" ng-model="product.congsuatDien" />
+                                            <label for="congsuatDien">Công suất điện</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="cocheRungEp" class="form-control" name="cocheRungEp" ng-model="product.cocheRungEp" />
+                                            <label for="cocheRungEp">Cơ chế rung ép</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="khayDoGach" class="form-control" name="khayDoGach" ng-model="product.khayDoGach" />
+                                            <label for="khayDoGach">Khay đỡ gạch</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="baohanh" class="form-control" name="baohanh" ng-model="product.baohanh" />
+                                            <label for="baohanh">Bảo hành</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="sanxuatTai" class="form-control" name="sanxuatTai" ng-model="product.sanxuatTai" />
+                                            <label for="sanxuatTai">Sản xuất tại</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="nhansu" class="form-control" name="nhansu" ng-model="product.nhansu" />
+                                            <label for="nhansu">Nhân sự</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="dientichNhaMay" class="form-control" name="dientichNhaMay" ng-model="product.dientichNhaMay" />
+                                            <label for="dientichNhaMay">Diện tích nhà máy</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card-head card-head-sm style-primary" style="margin-bottom:20px">
+                                            <header><b class="text-uppercase">Nhân sự 15 người sản xuất / ca</b></header>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="congnhanLaiMay" class="form-control" name="congnhanLaiMay" ng-model="product.congnhanLaiMay" />
+                                            <label for="congnhanLaiMay">Công nhân lái máy</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="congnhanSanXuat" class="form-control" name="congnhanSanXuat" ng-model="product.congnhanSanXuat" />
+                                            <label for="congnhanSanXuat">Công nhân sản xuất</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="congnhanBocXep" class="form-control" name="congnhanBocXep" ng-model="product.congnhanBocXep" />
+                                            <label for="congnhanBocXep">Công nhân bốc xếp</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card-head card-head-sm style-primary" style="margin-bottom:20px">
+                                            <header><b class="text-uppercase">Quy mô xây dựng 7.850m<sup>2</sup></b></header>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="nhaxuongDatMay" class="form-control" name="nhaxuongDatMay" ng-model="product.nhaxuongDatMay" />
+                                            <label for="nhaxuongDatMay">Nhà xưởng đặt máy</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="khuvucPhoiGachNon" class="form-control" name="khuvucPhoiGachNon" ng-model="product.khuvucPhoiGachNon" />
+                                            <label for="khuvucPhoiGachNon">Khu vực phơi gạch non</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="baichuaThanhPham" class="form-control" name="baichuaThanhPham" ng-model="product.baichuaThanhPham" />
+                                            <label for="baichuaThanhPham">Bãi chứa thành phẩm cho 01 tháng sản xuất</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="baichuaNguyenLieu" class="form-control" name="baichuaNguyenLieu" ng-model="product.baichuaNguyenLieu" />
+                                            <label for="baichuaNguyenLieu">Bãi chứa nguyên liệu đầu vào cho 01 tháng sản xuất</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="congtrinhkhac" class="form-control" name="congtrinhkhac" ng-model="product.congtrinhkhac" />
+                                            <label for="congtrinhkhac">Công trình khác + Sân đường nội bộ và cây xanh</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--/Dây chuyền DmCLine-->
+                            <!--Trạm trộn bê tông-->
+                            <form class="form" role="form" ng-show="product.idCategory == 10">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card-head card-head-sm style-primary" style="margin-bottom:20px">
+                                            <header><b class="text-uppercase">Thông số kỹ thuật</b></header>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" value="" id="nangsuatTronTinhToan" class="form-control" name="nangsuatTronTinhToan" ng-model="product.nangsuatTronTinhToan" />
+                                            <label for="nangsuatTronTinhToan">Năng suất trộn tính toán</label>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <input type="text" value="" id="nangsuatTronThucTe" class="form-control" name="nangsuatTronThucTe" ng-model="product.nangsuatTronThucTe" />
+                                            <label for="nangsuatTronThucTe">Năng suất trộn thực tế lớn nhất</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" value="" id="dungtichMeTron" class="form-control" name="dungtichMeTron" ng-model="product.dungtichMeTron" />
+                                            <label for="dungtichMeTron">Dung tích một mẻ trộn bê tông lớn nhất</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" value="" id="chieucaoXaLieu" class="form-control" name="chieucaoXaLieu" ng-model="product.chieucaoXaLieu" />
+                                            <label for="chieucaoXaLieu">Chiều cao xả liệu</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" value="" id="hethongDieuKhien" class="form-control" name="hethongDieuKhien" ng-model="product.hethongDieuKhien" />
+                                            <label for="hethongDieuKhien">Hệ thống điều khiển</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" value="" id="kieucoiTron" class="form-control" name="kieucoiTron" ng-model="product.kieucoiTron" />
+                                            <label for="kieucoiTron">Kiểu cối trộn</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" value="" id="dungtichCoiTron" class="form-control" name="dungtichCoiTron" ng-model="product.dungtichCoiTron" />
+                                            <label for="dungtichCoiTron">Dung tích cối trộn bê tông</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" value="" id="dungtichPheuChua" class="form-control" name="dungtichPheuChua" ng-model="product.dungtichPheuChua" />
+                                            <label for="dungtichPheuChua">Dung tích phễu chứa cốt liệu</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" value="" id="capcotlieu" class="form-control" name="capcotlieu" ng-model="product.capcotlieu" />
+                                            <label for="capcotlieu">Cấp cốt liệu lên cối trộn sau khi cân</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" value="" id="vittaiCapXiMang" class="form-control" name="vittaiCapXiMang" ng-model="product.vittaiCapXiMang" />
+                                            <label for="vittaiCapXiMang">Vít tải cấp xi măng * 02 cái</label>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" value="" id="tongcongsuatTieuThuDien" class="form-control" name="tongcongsuatTieuThuDien" ng-model="product.tongcongsuatTieuThuDien" />
+                                            <label for="tongcongsuatTieuThuDien">Tổng công suất tiêu thụ điện</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--/Trạm trộn bê tông-->
+                            <!--Gạch DmCBlock-->
+                            <form class="form" role="form" ng-hide="product.idCategory == 2 || product.idCategory == 10">
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <div class="card-head card-head-sm style-primary" style="margin-bottom:20px">
+                                            <header><b class="text-uppercase">Thông số kỹ thuật</b></header>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="kichthuoc" class="form-control" name="kichthuoc" ng-model="product.kichthuoc" />
+                                            <label for="kichthuoc">Kích thước</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="khoiluong" class="form-control" name="khoiluong" ng-model="product.khoiluong" />
+                                            <label for="khoiluong">Khối lượng</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="sovien" class="form-control" name="sovien" ng-model="product.sovien" />
+                                            <label for="sovien">Số viên m2 tường</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="cuongdonen" class="form-control" name="cuongdonen" ng-model="product.cuongdonen" />
+                                            <label for="cuongdonen">Cường độ nén</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="dohutnuoc" class="form-control" name="dohutnuoc" ng-model="product.dohutnuoc" />
+                                            <label for="dohutnuoc">Độ hút nước</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="khoiluongTheTich" class="form-control" name="khoiluongTheTich" ng-model="product.khoiluongTheTich" />
+                                            <label for="khoiluongTheTich">Khối lượng thể tích (kg/m<sup>3</sup>)</label>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="dorong" class="form-control" name="dorong" ng-model="product.dorong" />
+                                            <label for="dorong">Độ rỗng</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--/Gạch DmCBlock-->
+                        </div>
+                        <!--/Chi tiết sản phẩm-->
+                        <!--Tài liệu kỹ thuật-->
+                        <div class="tab-pane" id="tailieukythuat">
+                            <!--DMCLINE và Trạm trộn bê tông-->
+                            <form class="form" role="form" ng-show="product.idCategory == 2 || product.idCategory == 10">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card-head card-head-sm style-primary" style="margin-bottom:20px">
+                                            <header><b class="text-uppercase">Tài liệu kỹ thuật</b></header>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="tailieuKyThuat" class="form-control" name="tailieukythuat" ng-model="product.tailieuKyThuat" />
+                                            <label for="tailieuKyThuat">Tài liệu kỹ thuật (link google drive)</label><br />
+                                            <iframe ng-src="{{product.tailieuKyThuat | trustUrl }}" width="100%" height="600"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--/DMCLINE và Trạm trộn bê tông-->
+                            <!--DMCBLOCK-->
+                            <form class="form" role="form" ng-hide="product.idCategory == 2 || product.idCategory == 10">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card-head card-head-sm style-primary" style="margin-bottom:20px">
+                                            <header><b class="text-uppercase">Thông số kỹ thuật</b></header>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="thongsoKyThuat" class="form-control" name="thongsoKyThuat" ng-model="product.thongsoKyThuat" />
+                                            <label for="thongsoKyThuat">Thông số kỹ thuật (link google drive)</label><br />
+                                            <iframe ng-src="{{product.thongsoKyThuat | trustUrl }}" width="100%" height="600"></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card-head card-head-sm style-primary" style="margin-bottom:20px">
+                                            <header><b class="text-uppercase">Bản vẽ 2D</b></header>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="banve2d" class="form-control" name="banve2d" ng-model="product.banve2d" />
+                                            <label for="banve2d">Bản vẽ 2D (link google drive)</label><br />
+                                            <iframe ng-src="{{product.banve2d | trustUrl }}" width="100%" height="600"></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card-head card-head-sm style-primary" style="margin-bottom:20px">
+                                            <header><b class="text-uppercase">Bản vẽ 3D</b></header>
+                                        </div>
+                                        <div class="form-group ">
+                                            <input type="text" value="" id="banve3d" class="form-control" name="banve3d" ng-model="product.banve3d" />
+                                            <label for="banve3d">Bản vẽ 3D (link google drive)</label><br />
+                                            <iframe ng-src="{{product.banve3d | trustUrl }}" width="100%" height="600"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--/DMCBLOCK-->
+                        </div>
+                        <!--/Tài liệu kỹ thuật-->
+                        <!--Banner-->
+                        <div class="tab-pane" id="banner">
+                            <div class="row">
+                                <form class="form" role="form">
+                                    <div class="form-group col-md-6">
+                                        <div class="input-group">
+                                            <div class="input-group-content">
+                                                <input type="text" class="form-control" id="imageBanner" ng-model="product.imageBanner">
+                                                <label for="imageBanner">Hình ảnh Banner</label>
+                                            </div>
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-default" ng-click="ChooseImageBanner()" type="button">Chọn</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="color" class="form-control" ng-model="product.colorBackgroundBanner">
+                                        <label>Màu nền Banner</label>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="color" class="form-control" ng-model="product.colorTitleBanner">
+                                        <label>Màu chữ tiêu đề Banner</label>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="color" class="form-control" ng-model="product.colorTextBanner">
+                                        <label>Màu chữ mô tả Banner</label>
+                                    </div>
+                                </form>
+                                <br />
+                                <!--Demo Banner-->
+                                <div class="col-md-12">
+                                    <div class="bannerDemo">
+                                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                            <div class="carousel-inner" role="listbox">
+                                                <div class="item banner-child active" style="background-image: url({{product.imageBanner}}); background-color: {{product.colorBackgroundBanner}}; ">
+                                                    <div class="banner-child-content">
+                                                        <div class="banner-child-title" style="color: {{product.colorTitleBanner}}">{{product.title}}</div>
+                                                        <div class="banner-child-des" style="color: {{product.colorTextBanner}}">{{product.description}}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/Banner-->
+                        <!--SEO-->
+                        <div class="tab-pane" id="seo">
+                            <form class="form" role="form">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <input type="text" value="" id="author" class="form-control" name="author" ng-model="product.metaKewords" />
+                                                    <label for="metakewords">Thẻ từ khóa</label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" value="" id="author" class="form-control" name="author" ng-model="product.author" />
+                                                    <label for="author">Tác giả</label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <select id="robots" name="robots" class="form-control" ng-model="product.robots">
+                                                        <option value="Index, Follow" ng-selected="product.robots == 'Index, Follow'">Index, Follow</option>
+                                                        <option value="No index, Follow" ng-selected="product.robots == 'No index, Follow'">No index, Follow</option>
+                                                        <option value="Index, No follow" ng-selected="product.robots == 'Index, No follow'">Index, No follow</option>
+                                                        <option value="No index, No follow" ng-selected="product.robots == 'No index, No follow'">No index, No follow</option>
+                                                    </select>
+                                                    <label for="robots">Robots</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <textarea name="metadescription" id="metadescription" class="form-control" rows="6" placeholder="" ng-model="product.metaDescription"></textarea>
+                                                    <label for="metadescription">Thẻ mô tả</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar fa-lg"></span></span>
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="timePublished" ng-model="product.timePublished" readonly>
+                                                    <label for="timePublished">Ngày tạo</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-user fa-lg"></span></span>
+                                                <div class="input-group-content">
+                                                    <input type="text" class="form-control" id="idUserCreated" ng-model="product.idUserCreated" name="idUserCreated" readonly>
+                                                    <label for="idUserCreated">Người tạo</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--/SEO-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Quản lý Bài viết";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="postController">
+    <!--Header Section-->
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li class="active text-uppercase">Quản lý Bài viết</li>
+        </ol>
+    </div>
+
+    <!--Body-->
+    <div class="section-body">
+        @*<input type="hidden" value="@WebSecurity.CurrentUserName" id="user" />*@
+        <div class="row">
+
+        </div>
+        <hr class="ruler-lg" />
+
+        <div class="card">
+            <div class="card-body">
+                @*<span us-spinner="{radius:15, width:4, length: 8}"></span>*@
+                <!--Category Post-->
+                <div class="col-md-12 col-sm-12 col-xs-12" id="post">
+                    <div id="gridContainer" dx-data-grid="gridPosts"></div>
+                    <div dx-context-menu="contextMenuPost"></div>
+                </div>
+
+                <!--Popup Delete-->
+                <div class="popup" dx-popup="popupDeletePost">
+                    <div data-options="dxTemplate: { name:'templateDeletePost' }">
+                        <div style="text-align: center" ng-cloak>{{titleDeletePost}}</div>
+                        <br />
+                        <div dx-button="{ text: 'Có', icon: 'floppy', onClick: ConfirmDeletePost, type: 'success' }"></div>
+                        <div dx-button="{ text: 'Không', icon: 'clear', onClick: CancelDeletePost, type: 'danger' }"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

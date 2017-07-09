@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MinhThanhModelStoreContainer" CdmEntityContainer="MinhThanhEntities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="MinhThanhModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="MinhThanhModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="MinhThanhModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="MinhThanhModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="IsGoogleAuthenticatorEnabled" ColumnName="IsGoogleAuthenticatorEnabled" />
+          <ScalarProperty Name="GoogleAuthenticatorSecretKey" ColumnName="GoogleAuthenticatorSecretKey" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banners">
+      <EntityTypeMapping TypeName="MinhThanhModel.Banner">
+        <MappingFragment StoreEntitySet="Banner">
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="published" ColumnName="published" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="textLink" ColumnName="textLink" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryPosts">
+      <EntityTypeMapping TypeName="MinhThanhModel.CategoryPost">
+        <MappingFragment StoreEntitySet="CategoryPost">
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="colorTextBanner" ColumnName="colorTextBanner" />
+          <ScalarProperty Name="colorTitleBanner" ColumnName="colorTitleBanner" />
+          <ScalarProperty Name="colorBackgroundBanner" ColumnName="colorBackgroundBanner" />
+          <ScalarProperty Name="imageBanner" ColumnName="imageBanner" />
+          <ScalarProperty Name="robots" ColumnName="robots" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="metaKewords" ColumnName="metaKewords" />
+          <ScalarProperty Name="metaDescription" ColumnName="metaDescription" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="isService" ColumnName="isService" />
+          <ScalarProperty Name="timePublished" ColumnName="timePublished" />
+          <ScalarProperty Name="published" ColumnName="published" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="idUserCreated" ColumnName="idUserCreated" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InfoCompanies">
+      <EntityTypeMapping TypeName="MinhThanhModel.InfoCompany">
+        <MappingFragment StoreEntitySet="InfoCompany">
+          <ScalarProperty Name="mst" ColumnName="mst" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="intro" ColumnName="intro" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="MinhThanhModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="colorTextBanner" ColumnName="colorTextBanner" />
+          <ScalarProperty Name="colorTitleBanner" ColumnName="colorTitleBanner" />
+          <ScalarProperty Name="colorBackgroundBanner" ColumnName="colorBackgroundBanner" />
+          <ScalarProperty Name="imageBanner" ColumnName="imageBanner" />
+          <ScalarProperty Name="robots" ColumnName="robots" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="metaKewords" ColumnName="metaKewords" />
+          <ScalarProperty Name="metaDescription" ColumnName="metaDescription" />
+          <ScalarProperty Name="featured" ColumnName="featured" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="timePublished" ColumnName="timePublished" />
+          <ScalarProperty Name="published" ColumnName="published" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="idUserCreated" ColumnName="idUserCreated" />
+          <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="MinhThanhModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

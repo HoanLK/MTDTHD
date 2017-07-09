@@ -1,0 +1,60 @@
+﻿@model CMS.Models.ViewModel.HandBookViewModel
+<div class="sub_banner">
+    <img class="img-responsive" src="~/Content/Frontend/Theme/DMC/images/banner/banner-tin-tuc-1366x190.png" title="Cẩm nang" alt="Cẩm nang" />
+</div>
+<div class="bread_nav wrapper hidden-xs">
+    <a href="javascript:;"></a><a href="/" title="Trang chủ">Trang chủ</a>&nbsp;&gt;&nbsp;<a href="/cam-nang/" class="on" title="Cẩm nang">Cẩm nang</a>
+</div>
+<div class="main_con row">
+    <div class="news wrapper hidden-xs">
+        <p class="c_ttl">Cẩm nang</p>
+        <div class="news_list wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+            <ul class="clearfix">
+                @foreach (var item in Model.Posts)
+                {
+                    <li class="fl">
+                        <a href="/cam-nang/@item.alias-@item.id" title="@item.title">
+                            <div class="pic"><img src="@item.image" alt="@item.title" title="@item.title" class="img-responsive"></div>
+                            <p class="ttl ln2" style="font-weight: bold">@item.title</p>
+                            <p class="date"><span class="fa fa-clock-o">&nbsp;</span>@item.timePublished.Value.ToString("dd.MM.yyyy")</p>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="news visible-xs">
+        <p class="c_ttl">Cẩm nang</p>
+        <div class="news_banner clearfix">
+            <div class="fadeInRight animated" style="visibility: visible; animation-name: fadeInRight;">
+                <ul>
+                    @foreach (var item in Model.Posts)
+                    {
+                        <li class="col-md-4" style="margin: 20px 10px; padding-bottom: 20px; border-bottom: 1px solid #808080">
+                            <a href="/cam-nang/@item.alias-@item.id" title="@item.title" class="clearfix">
+                                <img src="@item.image" alt="" class="img-responsive">
+                                <div class="txt">
+                                    <p class="ttl ln2" style="font-weight: bold">@item.title</p>
+                                    <p class="date"><span class="fa fa-clock-o">&nbsp;</span>@item.timePublished.Value.ToString("dd.MM.yyyy")</p>
+                                    @if (@item.description != null)
+                                    {
+                                        if (@item.description.Length >= 80)
+                                        {
+                                            <p class="con ln2">@item.description.Substring(0, 80) ...</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="con ln2">@item.description</p>
+                                        }
+
+                                    }
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

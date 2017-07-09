@@ -1,0 +1,62 @@
+﻿@model CMS.Models.IndexViewModel
+@{
+    ViewBag.Title = "Quản lý Tài khoản";
+    Layout = "/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+
+    <!--Header Section-->
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li class="active text-uppercase" style="width: 100%">
+                <div class="col-md-4">
+                    Quản lý Tài khoản
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!--Body-->
+    <div class="section-body">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="card">
+                <div class="card-body">
+                    <p class="text-success">@ViewBag.StatusMessage</p>
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>Mật khẩu:</dt>
+                            <dd>
+                                [
+                                @if (Model.HasPassword)
+                                {
+                                    @Html.ActionLink("Đổi mật khẩu", "ChangePassword")
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Tạo mật khẩu", "SetPassword")
+                                }
+                                ]
+                            </dd>
+
+                            <br />
+                            <dt>
+                                Xác thức 2 lớp:
+                            </dt>
+                            <dd>
+                                @if (Model.IsGoogleAuthenticatorEnabled)
+                                {
+                                    @Html.ActionLink("[Hủy kích hoạt]", "DisableGoogleAuthenticator")
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("[Kích hoạt]", "EnableGoogleAuthenticator")
+                                }
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

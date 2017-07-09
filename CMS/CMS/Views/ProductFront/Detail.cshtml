@@ -1,0 +1,275 @@
+﻿@model CMS.Models.ViewModel.ShowProductViewModel
+
+<div class="sub_banner">
+    <img src="http://www.concrete-mix-plant.com/d/img/pro-banner.jpg" alt="">
+</div>
+<div class="bread_nav wrapper">
+    <a href="/">Trang chủ</a>&nbsp;&gt;&nbsp;<a href="/san-pham/"> Sản phẩm</a>&nbsp;&gt;&nbsp;<a href="" class="on">@Model.Product.title</a>
+</div>
+<div class="main_con">
+    <div class="produc_detail wrapper">
+        <div class="pro_t clearfix">
+            <div class="pro_t_banner fl wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;">
+                <div id="play">
+                    <ul class="img_ul">
+                        @if (Model.Product.hinhanh1 != null)
+                        {
+                            <li style="display: list-item;"><img src="@Model.Product.hinhanh1" alt="@Model.Product.title"></li>}
+                        @if (Model.Product.hinhanh2 != null)
+                        {
+                            <li style="display: none;"><img src="@Model.Product.hinhanh2" alt="@Model.Product.title"></li>}
+                        @if (Model.Product.hinhanh3 != null)
+                        {
+                            <li style="display: none;"><img src="@Model.Product.hinhanh3" alt="@Model.Product.title"></li>}
+                        @if (Model.Product.hinhanh4 != null)
+                        {
+                            <li style="display: none;"><img src="@Model.Product.hinhanh4" alt="@Model.Product.title"></li>}
+                        @if (Model.Product.hinhanh5 != null)
+                        {
+                            <li style="display: none;"><img src="@Model.Product.hinhanh5" alt="@Model.Product.title"></li>}
+                        @if (Model.Product.hinhanh6 != null)
+                        {
+                            <li style="display: none;"><img src="@Model.Product.hinhanh6" alt="@Model.Product.title"></li>}
+                    </ul>
+                </div>
+                <div class="imgMove">
+                    <div class="img_hd">
+                        <ul class=" clearfix" style="width: 660px;">
+                            @if (Model.Product.hinhanh1 != null)
+                            {
+                                <li class="on"><img src="@Model.Product.hinhanh1" alt="@Model.Product.title"></li> }
+                            @if (Model.Product.hinhanh2 != null)
+                            {
+                                <li class=""><img src="@Model.Product.hinhanh2" alt="@Model.Product.title"></li> }
+                            @if (Model.Product.hinhanh3 != null)
+                            {
+                                <li class=""><img src="@Model.Product.hinhanh3" alt="@Model.Product.title"></li> }
+                            @if (Model.Product.hinhanh4 != null)
+                            {
+                                <li class=""><img src="@Model.Product.hinhanh4" alt="@Model.Product.title"></li> }
+                            @if (Model.Product.hinhanh5 != null)
+                            {
+                                <li class=""><img src="@Model.Product.hinhanh5" alt="@Model.Product.title"></li> }
+                            @if (Model.Product.hinhanh6 != null)
+                            {
+                                <li class=""><img src="@Model.Product.hinhanh6" alt="@Model.Product.title"></li> }
+                        </ul>
+                    </div>
+                    <a class="bottom_a prev_a"> &lt; </a>
+                    <a class="bottom_a next_a"> &gt; </a>
+                </div>
+            </div>
+            <div class="pro_t_txt fr wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight;">
+                <h1><p class="ttl">@Model.Product.title</p></h1>
+                @if (Model.CategoryProduct.id == 2)
+                {
+                    <ul class="con">
+                        <li><span>&nbsp;</span><p>Công suất thiết kế: @Model.Product.congsuatThietKe</p></li>
+                        <li><span>&nbsp;</span><p>Chu kỳ tạo hình: @Model.Product.chukyTaoHinh</p></li>
+                        <li><span>&nbsp;</span><p>Công suất điện: @Model.Product.congsuatDien</p></li>
+                        <li><span>&nbsp;</span><p>Cơ chế rung ép: @Model.Product.cocheRungEp</p></li>
+                        <li><span>&nbsp;</span><p>Khay đỡ gạch: @Model.Product.khayDoGach</p></li>
+                        <li><span>&nbsp;</span><p>Bảo hành: @Model.Product.baohanh</p></li>
+                        <li><span>&nbsp;</span><p>Sản xuất tại: @Model.Product.sanxuatTai</p></li>
+                        <li><span>&nbsp;</span><p>Nhân sự: @Model.Product.nhansu</p></li>
+                        <li><span>&nbsp;</span><p>Diện tích nhà máy: @Model.Product.dientichNhaMay</p></li>
+                    </ul>
+                }
+                @if (Model.CategoryProduct.id == 10)
+                {
+                    <ul class="con">
+                        <li><span>&nbsp;</span><p>Năng suất trộn tính toán: @Model.Product.nangsuatTronTinhToan</p></li>
+                        <li><span>&nbsp;</span><p>Năng suất trộn thực tế lớn nhất: @Model.Product.nangsuatTronThucTe</p></li>
+                        <li><span>&nbsp;</span><p>Dung tích một mẻ trộng bê tông lớn nhất: @Model.Product.dungtichMeTron</p></li>
+                        <li><span>&nbsp;</span><p>Chiều cao xả liệu: @Model.Product.chieucaoXaLieu</p></li>
+                        <li><span>&nbsp;</span><p>Hệ thống điều khiển: @Model.Product.hethongDieuKhien</p></li>
+                        <li><span>&nbsp;</span><p>Kiểu cối trộn: @Model.Product.kieucoiTron</p></li>
+                        <li><span>&nbsp;</span><p>Dung tích cối trộn bê tông: @Model.Product.dungtichCoiTron</p></li>
+                        <li><span>&nbsp;</span><p>Cấp cốt liệu lên cối trộn sau khi cân: @Model.Product.capcotlieu</p></li>
+                        <li><span>&nbsp;</span><p>Vít tải cấp xi măng * 02 cái: @Model.Product.vittaiCapXiMang</p></li>
+                        <li><span>&nbsp;</span><p>Tổng công suất tiêu thụ điện: @Model.Product.tongcongsuatTieuThuDien</p></li>
+                    </ul>
+                }
+                @if (Model.CategoryProduct.id != 2 && Model.CategoryProduct.id != 10)
+                {
+                    <ul class="con">
+                        <li><span>&nbsp;</span><p>Kích thước: @Model.Product.kichthuoc</p></li>
+                        <li><span>&nbsp;</span><p>Khối lượng: @Model.Product.khoiluong</p></li>
+                        <li><span>&nbsp;</span><p>Số viên m<sup>2</sup> tường: @Model.Product.sovien</p></li>
+                        <li><span>&nbsp;</span><p>Cường độ nén: @Model.Product.cuongdonen</p></li>
+                        <li><span>&nbsp;</span><p>Độ hút nước: @Model.Product.dohutnuoc</p></li>
+                        <li><span>&nbsp;</span><p>Khối lượng thể tích (kg/m<sup>3</sup>): @Model.Product.khoiluongTheTich</p></li>
+                        <li><span>&nbsp;</span><p>Độ rỗng: @Model.Product.dorong</p></li>
+                    </ul>
+                }
+                <div class="link">
+                    <a href="javascript:;"><span class="fa fa-commenting-o">&nbsp;</span>Chat trực tuyến</a>
+                    <a href="mailto:myowebco@gmai.com" style="background: rgb(246, 130, 31);"><span class="fa fa-envelope-o">&nbsp;</span>Gửi Email</a>
+                    <a href="javascript:;" style="background: rgb(215, 179, 13);"><span class="fa fa-youtube-square">&nbsp;</span>Video sản phẩm</a>
+                </div>
+                @*<div class="share01">Share with: <div class="addthis_sharing_toolbox" data-url="http://www.concrete-mix-plant.com/stationary-concrete-batching-plant/hzs25-stationary-concrete-batching-plant.html" data-title="HZS25 stationary concrete batching plant" style="clear: both;"><div id="atstbx" class="at-share-tbx-element addthis-smartlayers addthis-animated at4-show" aria-labelledby="at-4322e5b5-6e62-4db1-b41d-4170e39bb772" role="region"><span id="at-4322e5b5-6e62-4db1-b41d-4170e39bb772" class="at4-visually-hidden">AddThis Sharing Buttons</span><div class="at-share-btn-elements"><a role="button" tabindex="1" class="at-icon-wrapper at-share-btn at-svc-linkedin" style="background-color: rgb(0, 119, 181); border-radius: 0%;"><span class="at4-visually-hidden">Share to LinkedIn</span><span class="at-icon-wrapper" style="line-height: 20px; height: 20px; width: 20px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" class="at-icon at-icon-linkedin" style="width: 20px; height: 20px;"><g><path d="M26 25.963h-4.185v-6.55c0-1.56-.027-3.57-2.175-3.57-2.18 0-2.51 1.7-2.51 3.46v6.66h-4.182V12.495h4.012v1.84h.058c.558-1.058 1.924-2.174 3.96-2.174 4.24 0 5.022 2.79 5.022 6.417v7.386zM8.23 10.655a2.426 2.426 0 0 1 0-4.855 2.427 2.427 0 0 1 0 4.855zm-2.098 1.84h4.19v13.468h-4.19V12.495z" fill-rule="evenodd"></path></g></svg></span></a><a role="button" tabindex="1" class="at-icon-wrapper at-share-btn at-svc-facebook" style="background-color: rgb(59, 89, 152); border-radius: 0%;"><span class="at4-visually-hidden">Share to Facebook</span><span class="at-icon-wrapper" style="line-height: 20px; height: 20px; width: 20px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" class="at-icon at-icon-facebook" style="width: 20px; height: 20px;"><g><path d="M22 5.16c-.406-.054-1.806-.16-3.43-.16-3.4 0-5.733 1.825-5.733 5.17v2.882H9v3.913h3.837V27h4.604V16.965h3.823l.587-3.913h-4.41v-2.5c0-1.123.347-1.903 2.198-1.903H22V5.16z" fill-rule="evenodd"></path></g></svg></span></a><a role="button" tabindex="1" class="at-icon-wrapper at-share-btn at-svc-twitter" style="background-color: rgb(29, 161, 242); border-radius: 0%;"><span class="at4-visually-hidden">Share to Twitter</span><span class="at-icon-wrapper" style="line-height: 20px; height: 20px; width: 20px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" class="at-icon at-icon-twitter" style="width: 20px; height: 20px;"><g><path d="M27.996 10.116c-.81.36-1.68.602-2.592.71a4.526 4.526 0 0 0 1.984-2.496 9.037 9.037 0 0 1-2.866 1.095 4.513 4.513 0 0 0-7.69 4.116 12.81 12.81 0 0 1-9.3-4.715 4.49 4.49 0 0 0-.612 2.27 4.51 4.51 0 0 0 2.008 3.755 4.495 4.495 0 0 1-2.044-.564v.057a4.515 4.515 0 0 0 3.62 4.425 4.52 4.52 0 0 1-2.04.077 4.517 4.517 0 0 0 4.217 3.134 9.055 9.055 0 0 1-5.604 1.93A9.18 9.18 0 0 1 6 23.85a12.773 12.773 0 0 0 6.918 2.027c8.3 0 12.84-6.876 12.84-12.84 0-.195-.005-.39-.014-.583a9.172 9.172 0 0 0 2.252-2.336" fill-rule="evenodd"></path></g></svg></span></a><a role="button" tabindex="1" class="at-icon-wrapper at-share-btn at-svc-google_plusone_share" style="background-color: rgb(220, 78, 65); border-radius: 0%;"><span class="at4-visually-hidden">Share to Google+</span><span class="at-icon-wrapper" style="line-height: 20px; height: 20px; width: 20px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" class="at-icon at-icon-google_plusone_share" style="width: 20px; height: 20px;"><g><path d="M12 15v2.4h3.97c-.16 1.03-1.2 3.02-3.97 3.02-2.39 0-4.34-1.98-4.34-4.42s1.95-4.42 4.34-4.42c1.36 0 2.27.58 2.79 1.08l1.9-1.83C15.47 9.69 13.89 9 12 9c-3.87 0-7 3.13-7 7s3.13 7 7 7c4.04 0 6.72-2.84 6.72-6.84 0-.46-.05-.81-.11-1.16H12zm15 0h-2v-2h-2v2h-2v2h2v2h2v-2h2v-2z" fill-rule="evenodd"></path></g></svg></span></a><a role="button" tabindex="1" class="at-icon-wrapper at-share-btn at-svc-email" style="background-color: rgb(132, 132, 132); border-radius: 0%;"><span class="at4-visually-hidden">Share to Email</span><span class="at-icon-wrapper" style="line-height: 20px; height: 20px; width: 20px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" class="at-icon at-icon-email" style="width: 20px; height: 20px;"><g><g fill-rule="evenodd"></g><path d="M27 22.757c0 1.24-.988 2.243-2.19 2.243H7.19C5.98 25 5 23.994 5 22.757V13.67c0-.556.39-.773.855-.496l8.78 5.238c.782.467 1.95.467 2.73 0l8.78-5.238c.472-.28.855-.063.855.495v9.087z"></path><path d="M27 9.243C27 8.006 26.02 7 24.81 7H7.19C5.988 7 5 8.004 5 9.243v.465c0 .554.385 1.232.857 1.514l9.61 5.733c.267.16.8.16 1.067 0l9.61-5.733c.473-.283.856-.96.856-1.514v-.465z"></path></g></svg></span></a><a role="button" tabindex="1" class="at-icon-wrapper at-share-btn at-svc-print" style="background-color: rgb(115, 138, 141); border-radius: 0%;"><span class="at4-visually-hidden">Share to In</span><span class="at-icon-wrapper" style="line-height: 20px; height: 20px; width: 20px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" class="at-icon at-icon-print" style="width: 20px; height: 20px;"><g><path d="M24.67 10.62h-2.86V7.49H10.82v3.12H7.95c-.5 0-.9.4-.9.9v7.66h3.77v1.31L15 24.66h6.81v-5.44h3.77v-7.7c-.01-.5-.41-.9-.91-.9zM11.88 8.56h8.86v2.06h-8.86V8.56zm10.98 9.18h-1.05v-2.1h-1.06v7.96H16.4c-1.58 0-.82-3.74-.82-3.74s-3.65.89-3.69-.78v-3.43h-1.06v2.06H9.77v-3.58h13.09v3.61zm.75-4.91c-.4 0-.72-.32-.72-.72s.32-.72.72-.72c.4 0 .72.32.72.72s-.32.72-.72.72zm-4.12 2.96h-6.1v1.06h6.1v-1.06zm-6.11 3.15h6.1v-1.06h-6.1v1.06z"></path></g></svg></span></a><a role="button" tabindex="1" class="at-icon-wrapper at-share-btn at-svc-compact" style="background-color: rgb(255, 101, 80); border-radius: 0%;"><span class="at4-visually-hidden">Share to Thêm...</span><span class="at-icon-wrapper" style="line-height: 20px; height: 20px; width: 20px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" class="at-icon at-icon-addthis" style="width: 20px; height: 20px;"><g><path d="M18 14V8h-4v6H8v4h6v6h4v-6h6v-4h-6z" fill-rule="evenodd"></path></g></svg></span></a></div></div></div></div>
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5788bb9a72db0916"></script>*@
+            </div>
+        </div>
+        @if (Model.CategoryProduct.id == 2)
+        {
+            <div class="pro_tabs">
+                <ul class="pro_tabs_nav clearfix wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                    @*<li class="fl on">Mô tả</li>*@
+                    <li class="fl">Chi tiết sản phẩm</li>
+                    <li class="fl">Tài liệu kỹ thuật</li>
+                    <li class="fl"><a href="#inquiry">Liên hệ</a></li>
+                </ul>
+                <div class="pro_tabs_block wow fadeInUp animated" style="height: 280px; visibility: visible; animation-name: fadeInUp;">
+                    @*<div class="block01" style="display: block;">
+                            @Model.Product.description
+                        </div>*@
+                    <div class="block02 pro-table wrapper">
+                        <p style="font-size:1.2em; font-weight: bold;margin-bottom: 20px">1/ Thông số kỹ thuật</p>
+                        <table class="table table-responsive" style="width: 100%; background: none">
+                            <tr>
+                                <th>Công suất thiết kế</th>
+                                <td>@Model.Product.congsuatThietKe</td>
+                            </tr>
+                            <tr>
+                                <th>Chù kỳ tạo hình</th>
+                                <td>@Model.Product.chukyTaoHinh</td>
+                            </tr>
+                            <tr>
+                                <th>Công suất điện</th>
+                                <td>@Model.Product.congsuatDien</td>
+                            </tr>
+                            <tr>
+                                <th>Cơ chế rung ép</th>
+                                <td>@Model.Product.cocheRungEp</td>
+                            </tr>
+                            <tr>
+                                <th>Khay đỡ gạch</th>
+                                <td>@Model.Product.khayDoGach</td>
+                            </tr>
+                            <tr>
+                                <th>Bảo hành</th>
+                                <td>@Model.Product.baohanh</td>
+                            </tr>
+                            <tr>
+                                <th>Sản xuất tại</th>
+                                <td>@Model.Product.sanxuatTai</td>
+                            </tr>
+                            <tr>
+                                <th>Nhân sự</th>
+                                <td>@Model.Product.nhansu</td>
+                            </tr>
+                            <tr>
+                                <th>Diện tích nhà máy</th>
+                                <td>@Model.Product.dientichNhaMay</td>
+                            </tr>
+                        </table>
+                        <p style="font-size:1.2em; font-weight: bold;margin-bottom: 20px">2/ Nhân sự 16 người  sản xuất/1 ca</p>
+                        <table class="table table-responsive" style="width: 100%; background: none">
+                            <tr>
+                                <th>Công nhân lái máy</th>
+                                <td>@Model.Product.congnhanLaiMay</td>
+                            </tr>
+                            <tr>
+                                <th>Công nhân sản xuất</th>
+                                <td>@Model.Product.congnhanSanXuat</td>
+                            </tr>
+                            <tr>
+                                <th>Công nhân bốc xếp</th>
+                                <td>@Model.Product.congnhanBocXep</td>
+                            </tr>
+                        </table>
+                        <p style="font-size:1.2em; font-weight: bold;margin-bottom: 20px">3/ Quy mô xây dựng 9.350m<sup>2</sup></p>
+                        <table class="table table-responsive" style="width: 100%; background: none">
+                            <tr>
+                                <th>Nhà xưởng đặt máy</th>
+                                <td>@Model.Product.nhaxuongDatMay</td>
+                            </tr>
+                            <tr>
+                                <th>Khu vực phơi gạch non</th>
+                                <td>@Model.Product.khuvucPhoiGachNon</td>
+                            </tr>
+                            <tr>
+                                <th>Bãi chứa thành phẩm cho 01 tháng sản xuất</th>
+                                <td>@Model.Product.baichuaThanhPham</td>
+                            </tr>
+                            <tr>
+                                <th>Bãi chứa nguyên liệu đầu vào cho 01 tháng sản xuất</th>
+                                <td>@Model.Product.baichuaNguyenLieu</td>
+                            </tr>
+                            <tr>
+                                <th>Công trình khác + Sân đường nội bộ và cây xanh</th>
+                                <td>@Model.Product.congtrinhkhac</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="block01" style="width: 100%">
+                        <iframe src="@Model.Product.tailieuKyThuat" width="100%" height="600"></iframe>
+                    </div>
+                </div>
+            </div>
+        }
+        @if (Model.CategoryProduct.id != 2)
+        {
+            <div class="pro_tabs">
+                <ul class="pro_tabs_nav clearfix wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                    @*<li class="fl on">Mô tả</li>*@
+                    <li class="fl">Thông số kỹ thuật</li>
+                    <li class="fl">Bản vẽ 2D</li>
+                    <li class="fl">Bản vẽ 3D</li>
+                    <li class="fl"><a href="#inquiry">Liên hệ</a></li>
+                </ul>
+                <div class="pro_tabs_block wow fadeInUp animated" style="height: 280px; visibility: visible; animation-name: fadeInUp;">
+                    @*<div class="block01" style="display: block;">
+                        @Model.Product.description
+                    </div>*@
+                    <div class="block02 pro-table wrapper">
+                        <iframe src="@Model.Product.thongsoKyThuat" width="100%" height="600"></iframe>
+                    </div>
+                    <div class="block02 pro-table wrapper">
+                        <iframe src="@Model.Product.banve2d" width="100%" height="600"></iframe>
+                    </div>
+                    <div class="block02 pro-table wrapper">
+                        <iframe src="@Model.Product.banve3d" width="100%" height="600"></iframe>
+                    </div>
+                </div>
+            </div>
+        }
+        
+
+
+
+        <div class="pro_relative wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+            <p class="ttl">Sản phẩm liên quan</p>
+            <div class="bd">
+                <div class="tempWrap" style="overflow:hidden; position:relative; width:1220px">
+                    <ul style="width: 4575px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
+                        @foreach (var item in Model.RelateProduct)
+                        {
+                            <li class="clone" style="float: left; width: 280px;">
+                                <a href="/san-pham/@Model.CategoryProduct.alias/@item.alias-@item.id" title="@item.title">
+                                    <div class="pic"><img src="@item.image" alt="@item.title"></div>
+                                    <p class="ln1">@item.title</p>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="prev"><img src="~/Content/Frontend/Theme/DMC/images/left.png" alt=""></div>
+            <div class="next"><img src="~/Content/Frontend/Theme/DMC/images/right.png" alt=""></div>
+        </div>
+        <div class="inquiry wow fadeInUp animated" id="inquiry" style="visibility: visible; animation-name: fadeInUp;">
+            <p class="ttl" id="contact"><span>Liên hệ</span>Vui lòng liên hệ với chúng tôi để nhận được tư vấn về sản phẩm</p>
+            <form method="post" action="/e/enews/index.php" name="formd2" onsubmit="return(CheckInputd(formd2))">
+                <div><span><i>*</i> Email của bạn :</span><input type="text" name="email" placeholder="Vui lòng nhập Email ..."></div>
+                <div><span>Số điện thoại :</span><input type="text" name="tel"></div>
+                <div><span>Tên của bạn :</span><input type="text" name="name"></div>
+                <div><span><i>*</i> Lời nhắn :</span><textarea name="title" id="" placeholder="Vui lòng để lại lời nhắn ..."></textarea></div>
+                <button class="submit02"><span class="fa fa-envelope-o"></span> Gửi</button>
+                <button class="reset"><span class="fa fa-refresh"></span> Làm mới</button>
+            </form>
+
+        </div>
+    </div>
+</div>

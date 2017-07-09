@@ -1,0 +1,169 @@
+﻿
+@{
+    ViewBag.Title = "Thêm Album";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="modifyAlbumController">
+    <!--Header Section-->
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li class="active text-uppercase" style="width: 100%">
+                <div class="col-md-4">
+                    @ViewBag.Title
+                </div>
+                <div class="col-md-8">
+                    <div class="col-md-3 pull-right">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-danger" ng-click="Cancel()"><span class="fa fa-remove"></span> Đóng</button>
+                    </div>
+                    <div class="col-md-3 pull-right">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-success" ng-click="Save()"><span class="fa fa-edit"></span> Lưu</button>
+                    </div>
+                    @*<div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="SaveAndExit()"><span class="fa fa-check-square-o"></span> Lưu & Thoát</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="SaveAndAdd()"><span class="fa fa-plus"></span> Lưu & Thêm mới</button>
+                    </div>*@
+                    
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!--Body-->
+    <div class="section-body">
+        @*<input type="hidden" value="@WebSecurity.CurrentUserName" id="user" />*@
+        <div class="row">
+
+        </div>
+        <hr class="ruler-lg" />
+
+        <div class="card">
+            <div class="card-body">
+                <form class="form" role="form">
+                    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group  " ng-class="{'has-error':!album.title, 'has-success':album.title}">
+                                <input type="text" class="form-control" id="title" name="title" ng-model="album.title" ng-change="GenAlias()">
+                                <label for="title">Tên Album *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="alias" ng-model="album.alias" name="alias" readonly>
+                                <label for="alias">Alias</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="col-md-3" style="border: 1px solid #d9d4d4; padding-bottom: 10px" ng-repeat="(index, value) in items">
+                            <img src="{{value.image}}" class="img-responsive" style="height: 160px" title="{{value.title}}"/>
+                            <p style="text-align: center; font-weight: bold; height: 40px" title="{{value.title}}">{{value.title | limitTo: 20}}<span ng-show="value.title.length > 20">...</span></p>
+                            <p>
+                                <button type="button" class="btn ink-reaction btn-raised btn-primary pull-left" ng-click="EditItem(index)"><i class="fa fa-edit"></i> Sửa</button>
+                                <button type="button" class="btn ink-reaction btn-raised btn-danger pull-right" ng-click="DeleteItem(index)"><i class="fa fa-remove"></i> Xóa</button>
+                            </p>
+                        </div>
+                        <div class="col-md-3" style="text-align: center; padding-top: 2em;">
+                            <button type="button" class="btn ink-reaction btn-floating-action btn-lg btn-info" style="height: 5em; width: 5em" title="Thêm ảnh" ng-click="AddItem()">
+                                <i class="fa fa-plus" style="font-size:2em"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <form class="form" role="form">
+                            <div class="form-group ">
+                                <select id="published" name="published" class="form-control" ng-model="album.published">
+                                    <option ng-value="option.value" ng-repeat="option in statuses" ng-selected="album.published == option.value">{{option.text}}</option>
+                                </select>
+                                <label for="published">Trạng thái</label>
+                            </div>
+                            <div class="form-group ">
+                                <textarea name="description" id="description" class="form-control" rows="2" placeholder="" ng-model="album.description"></textarea>
+                                <label for="description">Mô tả</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-content">
+                                        <input type="text" class="form-control" id="image" ng-model="album.image">
+                                        <label for="image">Ảnh đại diện</label>
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" ng-click="ChooseImage()" type="button">Chọn</button>
+                                    </div>
+                                </div>
+                                <img class="img-responsive" src="{{album.image}}" ng-show="album.image" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Popup Modify Item-->
+    <div class="popup" dx-popup="popupModifyItem">
+        <div data-options="dxTemplate: { name:'templateModifyItem' }">
+            <form class="form" role="form" ng-submit="SaveItem($event)" dx-validation-group="{item}">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <div class="dx-field">
+                                <label>Tiêu đề ảnh</label>
+                                <div dx-text-box="controlItem.title"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="dx-field">
+                                <label>Mô tả</label>
+                                <div dx-text-area="controlItem.description"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                        <div class="input-group">
+                            <div class="input-group-content">
+                                <input type="text" class="form-control" id="image" ng-model="item.image">
+                                <label for="image">Hình ảnh</label>
+                            </div>
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" ng-click="ChooseImageItem()" type="button">Chọn</button>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="color" class="form-control" ng-model="item.colorBackground">
+                            <label>Màu nền</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="color" class="form-control" ng-model="item.colorText">
+                            <label>Màu chữ</label>
+                        </div>
+                        <img class="img-responsive" src="{{item.image}}" ng-show="item.image" />
+                    </div>
+                    <div dx-validation-summary="{item}"></div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="pull-left" dx-button="{ text: 'Lưu', icon: 'floppy', type: 'success', useSubmitBehavior: true }"></div>
+                    <div class="pull-right" dx-button="{ text: 'Hủy bỏ', icon: 'clear', onClick: CancelSaveMenu, type: 'danger' }"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--Popup Delete Item-->
+    <div class="popup" dx-popup="popupDeleteItem">
+        <div data-options="dxTemplate: { name:'templateDeleteItem' }">
+            <div style="text-align: center" ng-cloak>{{titleDeleteItem}}</div>
+            <br />
+            <div dx-button="{ text: 'Có', icon: 'floppy', onClick: ConfirmDeleteItem, type: 'success' }"></div>
+            <div dx-button="{ text: 'Không', icon: 'clear', onClick: CancelDeleteItem, type: 'danger' }"></div>
+        </div>
+    </div>
+</div>

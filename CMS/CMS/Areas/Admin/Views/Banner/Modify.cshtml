@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Thêm - Sửa banner";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="modifyBannerController">
+    <!--Header Section-->
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li class="active text-uppercase" style="width: 100%">
+                <div class="col-md-4">
+                    Thêm - Sửa banner
+                </div>
+                <div class="col-md-8">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-success" ng-click="Save()"><span class="fa fa-edit"></span> Lưu</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="SaveAndExit()"><span class="fa fa-check-square-o"></span> Lưu & Thoát</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-info" ng-click="SaveAndAdd()"><span class="fa fa-plus"></span> Lưu & Thêm mới</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block btn-sm ink-reaction btn-danger" ng-click="Cancel()"><span class="fa fa-remove"></span> Hủy bỏ</button>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!--Body-->
+    <div class="section-body">
+        @*<input type="hidden" value="@WebSecurity.CurrentUserName" id="user" />*@
+        <div class="row">
+
+        </div>
+        <hr class="ruler-lg" />
+
+        <div class="card">
+            <div class="card-body">
+                <form class="form" role="form">
+                    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group  " ng-class="{'has-error':!banner.title, 'has-success':banner.title}">
+                                <input type="text" class="form-control" id="title" name="title" ng-model="banner.title" ng-change="GenAlias()">
+                                <label for="title">Tiêu đề *</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-content">
+                                        <input type="text" class="form-control" id="imageBanner" ng-model="banner.image">
+                                        <label for="imageBanner">Hình ảnh Banner</label>
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" ng-click="ChooseImageBanner()" type="button">Chọn</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group ">
+                                <textarea class="form-control" rows="3" placeholder="" ng-model="banner.description"></textarea>
+                                <label for="description">Mô tả</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row">
+                    <br />
+                    <!--Demo Banner-->
+                    <div class="col-md-12">
+                        <div class="bannerDemo">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item banner-child active" style="background-image: url({{banner.image}}); ">
+                                        @*<div class="banner-child-content">
+                                            <div class="banner-child-title" style="color: {{banner.colorTitleBanner}}">{{banner.title}}</div>
+                                            <div class="banner-child-des" style="color: {{banner.colorTextBanner}}">{{banner.description}}</div>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
